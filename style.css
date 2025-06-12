@@ -1,15 +1,20 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f4f4f4;
-  color: #333;
+  background: #000;
+  color: #fff;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 30px;
 }
 
@@ -17,21 +22,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  background: white;
+  background: #111;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
 .text {
   flex: 1;
-  padding: 40px;
+  padding: 50px;
 }
 
 .text h2 {
   font-size: 14px;
-  color: #999;
-  margin-bottom: 10px;
+  color: #888;
+  margin-bottom: 12px;
 }
 
 .text h1 {
@@ -40,18 +45,20 @@ body {
 }
 
 .highlight {
-  color: #ff4d5a;
+  color: #fff;
+  font-weight: bold;
 }
 
 .sub-highlight {
-  font-weight: 400;
-  color: #222;
+  color: #ccc;
+  font-weight: normal;
 }
 
 .text p {
   font-size: 16px;
-  margin-bottom: 30px;
   line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 30px;
 }
 
 .buttons {
@@ -61,16 +68,18 @@ body {
 
 .btn {
   text-decoration: none;
-  padding: 10px 20px;
-  background: #0073e6;
-  color: white;
-  border-radius: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
   font-weight: bold;
-  transition: background 0.3s ease;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: #005bb5;
+  background: #fff;
+  color: #000;
 }
 
 .image {
@@ -78,7 +87,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f9f9f9;
+  background: #000;
   padding: 30px;
 }
 
@@ -86,6 +95,5 @@ body {
   width: 100%;
   max-width: 350px;
   border-radius: 20px;
+  border: 3px solid #fff;
 }
-
-
