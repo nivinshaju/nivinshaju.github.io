@@ -166,3 +166,83 @@ body {
   text-align: left;
 }
 
+/* Projects Page Styling */
+
+.projects-container {
+  padding: 60px 30px;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.projects-heading {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  background-color: #1a1a1a;
+}
+
+.project-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.project-card h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-card h2 a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.project-card p {
+  color: #bbb;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.back-btn {
+  margin-top: 40px;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
