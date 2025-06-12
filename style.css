@@ -72,17 +72,18 @@ body {
   text-decoration: none;
   padding: 12px 24px;
   background: transparent;
-  border: 2px solid #fff;
   color: #fff;
   font-weight: bold;
   border-radius: 6px;
   transition: all 0.3s ease;
+  border: none; /* 🔥 remove white border */
 }
 
 .btn:hover {
   background: #fff;
   color: #000;
 }
+
 
 .image {
   flex: 1.2;
