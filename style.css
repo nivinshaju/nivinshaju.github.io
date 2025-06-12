@@ -21,12 +21,14 @@ body {
 .intro {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;  /* 🔁 Swaps image to left, text to right */
   max-width: 1200px;
   background: #111;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
+
 
 .text {
   flex: 1;
