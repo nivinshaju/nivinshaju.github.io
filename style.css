@@ -146,18 +146,19 @@ body {
 
 
 .projects-container {
-  background: #000;
+  padding: 60px 30px;
+  background-color: #000;
   color: #fff;
-  padding: 60px 40px;
   min-height: 100vh;
+  text-align: center;
 }
 
-.project-title {
+.projects-heading {
   font-size: 32px;
-  text-align: center;
   margin-bottom: 40px;
+  color: #fff;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .project-list {
@@ -169,26 +170,54 @@ body {
 }
 
 .project-card {
-  background: #111;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
 }
 
 .project-card h2 {
   font-size: 22px;
   margin-bottom: 10px;
+}
+
+.project-card h2 a {
   color: #fff;
+  text-decoration: none;
+}
+
+.project-card h2 a:hover {
+  color: #ccc;
+  text-decoration: underline;
 }
 
 .project-card p {
+  color: #bbb;
   font-size: 16px;
-  color: #ccc;
-  line-height: 1.5;
 }
 
-.back-home {
+.back-btn {
   margin-top: 40px;
-  text-align: center;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
+
+.back-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
 
