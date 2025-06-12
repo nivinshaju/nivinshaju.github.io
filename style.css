@@ -299,3 +299,73 @@ body {
   }
 }
 
+/* Responsive layout for homepage and intro section */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .text h1 {
+    font-size: 28px;
+  }
+
+  .text h2 {
+    font-size: 12px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+
+  .buttons-top {
+    justify-content: center;
+  }
+
+  .skills-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .skills-list {
+    text-align: center;
+  }
+
+  .image {
+    padding: 20px;
+  }
+
+  .image img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .skills-list li {
+    font-size: 16px;
+  }
+
+  .connect-options a {
+    font-size: 14px;
+  }
+}
+
+
