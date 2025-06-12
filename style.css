@@ -246,3 +246,56 @@ body {
   color: #000;
 }
 
+/* Responsive layout for mobile devices */
+@media (max-width: 768px) {
+  .project-list {
+    padding: 0 20px;
+  }
+
+  .project-card {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .project-card h2 {
+    font-size: 20px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .projects-heading {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card h2 {
+    font-size: 18px;
+  }
+
+  .project-card p {
+    font-size: 13px;
+  }
+
+  .back-btn {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+
+  .projects-heading {
+    font-size: 22px;
+  }
+}
+
