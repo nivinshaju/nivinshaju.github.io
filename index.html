@@ -15,21 +15,21 @@
         <h1>Hi, I'm <span class="highlight">Nivin Shaju</span><br><span class="sub-highlight">an AI Developer</span></h1>
         <p>I build AI-powered applications using Python, Flutter, and deep learning tools. From jewelry search to gesture control — I turn ideas into smart, functional apps.</p>
         
-        <!-- Buttons: Projects, Experience, Connect -->
+        <!-- Buttons -->
         <div class="buttons-top">
           <a href="projects.html" class="btn">📁 Projects</a>                
           <a href="experience.html" class="btn">💼 Experience</a>                
           <button class="btn" onclick="toggleConnect()">📬 Connect with Me</button>
         </div>
 
-        <!-- Dropdown connect options -->
+        <!-- Connect section -->
         <div id="connect-options" class="connect-options">
           <a href="mailto:nivinshaju@gmail.com" class="btn">📧 Email</a>
           <a href="https://www.linkedin.com/in/contactnivinshaju" class="btn" target="_blank">🔗 LinkedIn</a>
         </div>
 
-        <!-- Skills -->
-        <div class="skills-section">
+        <!-- Skills section -->
+        <div id="skills-section" class="skills-section">
           <h2>Skills</h2>
           <ul class="skills-list slide-in-left">
             <li>🔹 Python & Flask</li>
@@ -39,6 +39,7 @@
             <li>🔹 Google Drive API</li>
           </ul>
         </div>
+
       </div>
 
       <div class="image">
@@ -50,8 +51,17 @@
   <!-- JavaScript -->
   <script>
     function toggleConnect() {
-      const options = document.getElementById("connect-options");
-      options.style.display = options.style.display === "flex" ? "none" : "flex";
+      const skills = document.getElementById("skills-section");
+      const connect = document.getElementById("connect-options");
+
+      // Toggle visibility
+      if (skills.style.display !== "none") {
+        skills.style.display = "none";
+        connect.style.display = "flex";
+      } else {
+        skills.style.display = "block";
+        connect.style.display = "none";
+      }
     }
   </script>
 
