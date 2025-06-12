@@ -219,5 +219,17 @@ body {
   background: #fff;
   color: #000;
 }
+.buttons-top {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
 
 
