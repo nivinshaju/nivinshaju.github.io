@@ -1,115 +1,91 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
 body {
-  background-color: #f9f9f9;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
   color: #333;
 }
 
 .container {
-  padding: 40px;
-}
-
-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  padding: 30px;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-nav ul {
+.intro {
   display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 50px;
   flex-wrap: wrap;
+  max-width: 1200px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
 .text {
   flex: 1;
-  min-width: 300px;
+  padding: 40px;
 }
 
-.image img {
-  width: 350px;
-  border-radius: 10px;
-}
-
-.intro {
+.text h2 {
   font-size: 14px;
-  color: #888;
+  color: #999;
   margin-bottom: 10px;
-  letter-spacing: 1px;
 }
 
-h1 {
-  font-size: 40px;
-  line-height: 1.3;
+.text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .highlight {
-  color: #e91e63;
+  color: #ff4d5a;
 }
 
 .sub-highlight {
-  color: #4a148c;
+  font-weight: 400;
+  color: #222;
 }
 
-.description {
-  margin: 20px 0;
-  max-width: 500px;
+.text p {
   font-size: 16px;
-  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .buttons {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
 }
 
 .btn {
-  padding: 10px 20px;
-  background-color: #4a148c;
-  color: white;
   text-decoration: none;
-  border-radius: 5px;
+  padding: 10px 20px;
+  background: #0073e6;
+  color: white;
+  border-radius: 8px;
   font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.btn.outline {
-  background-color: white;
-  color: #4a148c;
-  border: 2px solid #4a148c;
+.btn:hover {
+  background: #005bb5;
 }
 
-.skills {
-  margin-top: 20px;
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 30px;
 }
 
-.skills img {
-  margin-right: 10px;
-  height: 40px;
-  vertical-align: middle;
+.image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
 }
+
 
