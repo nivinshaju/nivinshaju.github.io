@@ -549,9 +549,8 @@ body {
 }
 
 .chat-toggle {
-  position: absolute;
-  top: 60%; /* Adjust this if needed to align near "Skills" */
-  left: 30px; /* You can tweak this for placement */
+  display: block;
+  margin-top: 20px;
   width: 60px;
   height: 60px;
   background: url('assets/chatbot-icon.png') no-repeat center center;
@@ -559,8 +558,7 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 1001;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 @media (max-width: 600px) {
