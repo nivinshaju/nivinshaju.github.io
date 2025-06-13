@@ -547,6 +547,7 @@ body {
 .desktop-icon {
   display: inline-block;
   font-size: 18px;
+  line-height: 1;
 }
 
 .mobile-icon {
@@ -554,8 +555,8 @@ body {
 }
 
 .mobile-icon img {
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   object-fit: contain;
   border-radius: 50%;
 }
