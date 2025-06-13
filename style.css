@@ -495,16 +495,18 @@ body {
 
 /* Chatbot Styles */
 .chatbot {
-  display: none;
-  margin-top: 10px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
   width: 320px;
   background: #111;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px #555;
+  z-index: 999;
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
-  z-index: 9;
+  cursor: move;
 }
 
 
@@ -514,7 +516,7 @@ body {
   font-weight: bold;
   text-align: center;
   border-bottom: 1px solid #333;
-  cursor: pointer; /* 👈 makes it look clickable */
+  cursor: grab;
 }
 
 .chat-content {
