@@ -496,10 +496,10 @@ body {
 /* Chatbot Styles */
 .chatbot {
   display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
+  position: absolute;
+  top: 70%; /* adjust based on where the toggle is */
+  left: 100px; /* adjust near the button */
+  width: 320px;
   background: #111;
   color: #fff;
   border-radius: 10px;
@@ -508,6 +508,7 @@ body {
   overflow: hidden;
   z-index: 1000;
 }
+
 
 .chat-header {
   background: #222;
@@ -548,32 +549,37 @@ body {
 }
 
 .chat-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px;
-  background: #333;
-  color: #fff;
+  position: absolute;
+  top: 60%; /* Adjust this if needed to align near "Skills" */
+  left: 30px; /* You can tweak this for placement */
+  width: 60px;
+  height: 60px;
+  background: url('assets/chatbot-icon.png') no-repeat center center;
+  background-size: cover;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
   z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 @media (max-width: 600px) {
-  .chatbot {
-    width: 90%;
-    bottom: 90px;
-    right: 5%;
-    font-size: 14px;
+  .chat-toggle {
+    top: unset;
+    left: 20px;
+    bottom: 100px;
+    width: 60px;
+    height: 60px;
   }
 
-  .chat-toggle {
-    bottom: 20px;
-    right: 20px;
-    padding: 10px;
-    font-size: 16px;
+  .chatbot {
+    width: 90%;
+    left: 5%;
+    top: unset;
+    bottom: 120px;
   }
+}
+
 
   #user-input {
     font-size: 14px;
