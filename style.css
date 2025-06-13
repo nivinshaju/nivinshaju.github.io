@@ -494,6 +494,7 @@ body {
 }
 
 /* Chatbot Container */
+/* Chatbot Container */
 .chatbot {
   position: fixed;
   bottom: 100px;
@@ -517,7 +518,7 @@ body {
   transform: translateY(0);
 }
 
-/* Toggle Button */
+/* Chat Toggle Button */
 .chat-toggle-btn {
   position: fixed;
   bottom: 20px;
@@ -534,13 +535,18 @@ body {
   box-shadow: none;
   backdrop-filter: blur(10px);
   transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* Toggle Button Hover */
 .chat-toggle-btn:hover {
   transform: scale(1.1);
 }
 
-/* Optional Tooltip on Hover */
+/* Optional Tooltip */
 .chat-toggle-btn::after {
   content: "Chatbot";
   position: absolute;
@@ -555,22 +561,22 @@ body {
   transition: opacity 0.3s;
   white-space: nowrap;
 }
+
 .chat-toggle-btn:hover::after {
   opacity: 1;
 }
 
-/* Chat Header */
+/* Header Section */
 .chat-header {
   background: #222;
   padding: 12px;
   font-weight: bold;
   text-align: center;
   border-bottom: 1px solid #333;
-  cursor: move;
   user-select: none;
 }
 
-/* Chat Content Area */
+/* Chat Message Content Area */
 .chat-content {
   max-height: 280px;
   overflow-y: auto;
@@ -585,12 +591,13 @@ body {
 .chat-content::-webkit-scrollbar {
   width: 6px;
 }
+
 .chat-content::-webkit-scrollbar-thumb {
   background-color: #666;
   border-radius: 4px;
 }
 
-/* Bot & User Message Bubbles */
+/* Message Bubbles */
 .chat-content .bot,
 .chat-content .user {
   padding: 10px 14px;
@@ -612,7 +619,7 @@ body {
   align-self: flex-end;
 }
 
-/* Chat Input Area */
+/* Input Area */
 .chat-input-area {
   display: flex;
   border-top: 1px solid #333;
@@ -639,13 +646,8 @@ body {
   border-left: 1px solid #333;
 }
 
-/* Responsive for Small Screens */
+/* Responsive: Mobile View */
 @media (max-width: 600px) {
-  .chat-toggle-btn {
-    bottom: 20px;
-    right: 20px;
-  }
-
   .chatbot {
     width: 90%;
     left: 5%;
@@ -667,7 +669,26 @@ body {
   .chat-input-area input {
     font-size: 13px;
   }
+
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: inline-block;
+  }
+
+  .mobile-icon img {
+    width: 26px;
+    height: 26px;
+  }
 }
+
+/* Default Hide Mobile Icon */
+.mobile-icon {
+  display: none;
+}
+
 
 .certification-list {
   display: flex;
