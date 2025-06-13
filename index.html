@@ -22,13 +22,17 @@
           <a href="qualifications.html" class="btn">🎓 Qualifications</a>
           <a href="certifications.html" class="btn">📜 Certifications</a>
           <button class="btn" onclick="toggleConnect()">📬 Connect with Me</button>
+          <button class="chat-toggle-btn" onclick="toggleChat()">💬</button>
+
           
         </div>               
         <!-- Chatbot UI -->
         <div class="chatbot" id="chatbot">
-          <div class="chat-header" onmousedown="startDrag(event)">
+          <div class="chat-header">
             🤖 Nivin's Assistant
           </div>
+
+
          
             <div class="chat-content" id="chat-content">
               <div class="bot">Hi!</div>
@@ -135,35 +139,7 @@
       }, 800);
     }
   
-    // ✅ Dragging Logic
-    let isDragging = false;
-    let offsetX, offsetY;
-  
-    function startDrag(e) {
-      const chatbot = document.getElementById("chatbot");
-      isDragging = true;
-      offsetX = e.clientX - chatbot.getBoundingClientRect().left;
-      offsetY = e.clientY - chatbot.getBoundingClientRect().top;
-  
-      document.addEventListener("mousemove", drag);
-      document.addEventListener("mouseup", stopDrag);
-    }
-  
-    function drag(e) {
-      if (!isDragging) return;
-  
-      const chatbot = document.getElementById("chatbot");
-      chatbot.style.left = `${e.clientX - offsetX}px`;
-      chatbot.style.top = `${e.clientY - offsetY}px`;
-      chatbot.style.bottom = "unset";
-      chatbot.style.right = "unset";
-    }
-  
-    function stopDrag() {
-      isDragging = false;
-      document.removeEventListener("mousemove", drag);
-      document.removeEventListener("mouseup", stopDrag);
-    }
+    
   </script>
 
 
