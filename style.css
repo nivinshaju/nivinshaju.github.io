@@ -615,4 +615,25 @@ body {
   font-size: 16px;
   border-left: 1px solid #333;
 }
+#certifications {
+  padding: 40px 20px;
+  color: white;
+  background-color: #111;
+}
+
+#certifications h2 {
+  color: #1e90ff;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+#certifications ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#certifications li {
+  padding: 8px 0;
+  font-size: 16px;
+}
 
