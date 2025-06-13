@@ -28,14 +28,19 @@
         <!-- Chatbot UI -->
         <div class="chatbot" id="chatbot">
           <div class="chat-header">🤖 Nivin's Assistant</div>
+          
           <div class="chat-content" id="chat-content">
             <div class="bot">Hi! I'm your assistant. Ask me about skills, projects, or experience.</div>
           </div>
-          <input type="text" id="user-input" placeholder="Ask something..." onkeydown="handleInput(event)">
-        </div>
+          
+          <!-- 🔽 ADD THIS INPUT AREA HERE -->
+          <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Ask something..." onkeydown="handleInput(event)" />
+            <button onclick="sendMessage()" class="send-btn">➤</button>
+          </div>
+        </div>      
 
-
-        <!-- Connect section -->
+       <!-- Connect section -->
         <div id="connect-options" class="connect-options">
           <a href="mailto:nivinshaju@gmail.com" class="btn">📧 Email</a>
           <a href="https://www.linkedin.com/in/contactnivinshaju" class="btn" target="_blank">🔗 LinkedIn</a>
@@ -65,7 +70,7 @@
     function toggleConnect() {
       const skills = document.getElementById("skills-section");
       const connect = document.getElementById("connect-options");
-
+  
       if (skills.style.display !== "none") {
         skills.style.display = "none";
         connect.style.display = "flex";
@@ -74,40 +79,61 @@
         connect.style.display = "none";
       }
     }
-
+  
     function toggleChat() {
-      const bot = document.getElementById('chatbot');
-      bot.style.display = bot.style.display === 'none' ? 'block' : 'none';
+      const bot = document.getElementById("chatbot");
+      bot.style.display = (bot.style.display === "none" || bot.style.display === "") ? "block" : "none";
     }
-
-    function respond() {
+  
+    // Trigger when Enter key is pressed
+    function handleInput(event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    }
+  
+    function sendMessage() {
       const input = document.getElementById("user-input");
       const content = document.getElementById("chat-content");
       const msg = input.value.trim();
-
+  
       if (msg === "") return;
-
+  
+      // Display user's message
       content.innerHTML += `<div class="user">${msg}</div>`;
-
-      let response = "Sorry, I didn't understand that.";
-
-      if (msg.toLowerCase().includes("project")) {
-        response = "I’ve built a FireBot, Eye Mouse, and a Jewelry Search App.";
-      } else if (msg.toLowerCase().includes("experience")) {
-        response = "I worked from March 17 to June 17 as an AI Developer at Twenty4 Jewellery Industries Pvt Ltd.";
-      } else if (msg.toLowerCase().includes("skills")) {
-        response = "Python, Flask, YOLOv8, ConvNeXt, FAISS, OpenCV, Google Drive API.";
-      } else if (msg.toLowerCase().includes("email")) {
-        response = "📧 nivinshaju@gmail.com";
-      } else if (msg.toLowerCase().includes("linkedin")) {
-        response = "🔗 linkedin.com/in/contactnivinshaju";
-      } else if (msg.toLowerCase().includes("qualification")) {
-        response = "BSc AI & ML (76%) | Higher Secondary (87%) | High School (92%)";
-      }
-
-      content.innerHTML += `<div class="bot">${response}</div>`;
       input.value = "";
+  
+      // Typing animation
+      const typing = document.createElement("div");
+      typing.className = "bot";
+      typing.id = "typing-animation";
+      typing.textContent = "🤖 Typing...";
+      content.appendChild(typing);
       content.scrollTop = content.scrollHeight;
+  
+      setTimeout(() => {
+        let response = "Sorry, I didn't understand that.";
+        const lower = msg.toLowerCase();
+  
+        if (lower.includes("project")) {
+          response = "I’ve built a FireBot, Eye Mouse, and a Jewelry Search App.";
+        } else if (lower.includes("experience")) {
+          response = "I worked from March 17 to June 17 as an AI Developer at Twenty4 Jewellery Industries Pvt Ltd.";
+        } else if (lower.includes("skills")) {
+          response = "Python, Flask, YOLOv8, ConvNeXt, FAISS, OpenCV, Google Drive API.";
+        } else if (lower.includes("email")) {
+          response = "📧 nivinshaju@gmail.com";
+        } else if (lower.includes("linkedin")) {
+          response = "🔗 linkedin.com/in/contactnivinshaju";
+        } else if (lower.includes("qualification")) {
+          response = "🎓 BSc AI & ML (76%) | Higher Secondary (87%) | High School (92%)";
+        }
+  
+        // Replace typing with actual bot reply
+        typing.remove();
+        content.innerHTML += `<div class="bot">${response}</div>`;
+        content.scrollTop = content.scrollHeight;
+      }, 800); // Delay to simulate typing
     }
   </script>
 
