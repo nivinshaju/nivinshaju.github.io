@@ -591,4 +591,28 @@ body {
     padding: 6px 8px;
   }
 }
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #333;
+  background: #000;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: white;
+  outline: none;
+}
+
+.send-btn {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  border-left: 1px solid #333;
+}
 
