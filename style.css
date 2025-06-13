@@ -346,12 +346,15 @@ body {
     text-align: center;
   }
 
+  @media (max-width: 768px) {
   .image {
+    flex: 1 1 100%;
     padding: 20px;
   }
 
   .image img {
-    max-width: 300px;
+    width: 100%;
+    height: auto;
   }
 }
 
