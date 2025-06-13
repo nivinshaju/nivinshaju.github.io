@@ -496,9 +496,7 @@ body {
 /* Chatbot Styles */
 .chatbot {
   display: none;
-  position: absolute;
-  top: 70%; /* adjust based on where the toggle is */
-  left: 100px; /* adjust near the button */
+  margin-top: 10px;
   width: 320px;
   background: #111;
   color: #fff;
@@ -506,7 +504,7 @@ body {
   box-shadow: 0 0 10px #555;
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 9;
 }
 
 
