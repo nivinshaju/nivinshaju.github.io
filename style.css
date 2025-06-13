@@ -630,64 +630,67 @@ body {
 
 body {
   background-color: #000;
-  color: #fff;
+  color: white;
   font-family: 'Segoe UI', sans-serif;
-  padding: 40px 20px;
   margin: 0;
+  padding: 30px;
 }
 
-.title-section {
-  text-align: left;
+.section-title {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.title-section h1 {
-  font-size: 28px;
-  display: flex;
-  align-items: center;
+.section-title h1 {
+  font-size: 30px;
   margin: 0;
 }
 
-.title-section h1 span {
-  margin-left: 10px;
+.section-title p {
+  color: #ccc;
+  font-size: 14px;
 }
 
-.title-section p {
-  margin-top: 5px;
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  max-width: 700px;
+}
+
+.card h2 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 5px 0;
   font-size: 14px;
   color: #ccc;
 }
 
-.certification-box {
-  background-color: #1a1a1a;
-  border-left: 4px solid #00bfff;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 191, 255, 0.2);
-  max-width: 600px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.certification-title {
-  color: #00bfff;
-  font-size: 18px;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.certification-box p {
-  margin: 4px 0;
-  font-size: 14px;
-}
-
-.back-link {
-  margin-top: 20px;
-  display: block;
-  font-size: 14px;
-  color: #00bfff;
+.back-button {
+  background-color: white;
+  color: black;
   text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.back-link:hover {
-  text-decoration: underline;
+.back-button:hover {
+  background-color: #f0f0f0;
 }
+
