@@ -514,18 +514,19 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #fff;
+  background-color: transparent; /* Make it transparent */
   color: white;
-  border: none;
+  border: 2px solid #1e90ff; /* Optional: add border for visibility */
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 26px;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s;
+  z-index: 100;
+  box-shadow: none; /* Remove default shadow */
+  backdrop-filter: blur(10px); /* Optional: frosted glass effect */
 }
+
 
 .chat-toggle-btn:hover {
   transform: scale(1.1);
