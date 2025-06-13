@@ -19,9 +19,20 @@
         <div class="buttons-top">
           <a href="projects.html" class="btn">📁 Projects</a>                
           <a href="experience.html" class="btn">💼 Experience</a>  
-          <a href="qualifications.html" class="btn">🎓 Qualifications</a>
-          <button class="btn" onclick="toggleConnect()">📬 Connect with Me</button>
+          <a href="qualifications.html" class="btn">🎓 Qualifications</a>          
         </div>
+        <!-- Chatbot toggle button -->
+        <button class="chat-toggle" onclick="toggleChat()"></button>
+        
+        <!-- Chatbot UI -->
+        <div class="chatbot" id="chatbot">
+          <div class="chat-header">🤖 Nivin's Assistant</div>
+          <div class="chat-content" id="chat-content">
+            <div class="bot">Hi! I'm your assistant. Ask me about skills, projects, or experience.</div>
+          </div>
+          <input type="text" id="user-input" placeholder="Ask something..." onkeydown="handleInput(event)">
+        </div>
+
 
         <!-- Connect section -->
         <div id="connect-options" class="connect-options">
