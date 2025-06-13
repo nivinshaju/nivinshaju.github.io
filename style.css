@@ -544,8 +544,8 @@ body {
 }
 
 .chat-toggle-btn img {
-  width: 28px;
-  height: 28px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   border-radius: 50%;
 }
