@@ -86,7 +86,7 @@
       bot.style.display = (bot.style.display === "none" || bot.style.display === "") ? "block" : "none";
     }
   
-    // Trigger when Enter key is pressed
+    // Handle Enter key press in input
     function handleInput(event) {
       if (event.key === "Enter") {
         sendMessage();
@@ -100,11 +100,9 @@
   
       if (msg === "") return;
   
-      // Display user's message
       content.innerHTML += `<div class="user">${msg}</div>`;
       input.value = "";
   
-      // Typing animation
       const typing = document.createElement("div");
       typing.className = "bot";
       typing.id = "typing-animation";
@@ -130,13 +128,43 @@
           response = "🎓 BSc AI & ML (76%) | Higher Secondary (87%) | High School (92%)";
         }
   
-        // Replace typing with actual bot reply
         typing.remove();
         content.innerHTML += `<div class="bot">${response}</div>`;
         content.scrollTop = content.scrollHeight;
-      }, 800); // Delay to simulate typing
+      }, 800);
+    }
+  
+    // ✅ Dragging Logic
+    let isDragging = false;
+    let offsetX, offsetY;
+  
+    function startDrag(e) {
+      const chatbot = document.getElementById("chatbot");
+      isDragging = true;
+      offsetX = e.clientX - chatbot.getBoundingClientRect().left;
+      offsetY = e.clientY - chatbot.getBoundingClientRect().top;
+  
+      document.addEventListener("mousemove", drag);
+      document.addEventListener("mouseup", stopDrag);
+    }
+  
+    function drag(e) {
+      if (!isDragging) return;
+  
+      const chatbot = document.getElementById("chatbot");
+      chatbot.style.left = `${e.clientX - offsetX}px`;
+      chatbot.style.top = `${e.clientY - offsetY}px`;
+      chatbot.style.bottom = "unset";
+      chatbot.style.right = "unset";
+    }
+  
+    function stopDrag() {
+      isDragging = false;
+      document.removeEventListener("mousemove", drag);
+      document.removeEventListener("mouseup", stopDrag);
     }
   </script>
+
 
 </body>
 </html>
