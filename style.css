@@ -554,7 +554,7 @@ body {
   align-self: flex-end;
 }
 
-#user-input {
+.user-input {
   width: 100%;
   border: none;
   padding: 10px;
