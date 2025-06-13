@@ -499,15 +499,15 @@ body {
   bottom: 100px;
   right: 20px;
   width: 320px;
-  background: rgba(17, 17, 17, 0.85); /* Semi-transparent */
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  background: rgba(17, 17, 17, 0.85); 
+  backdrop-filter: blur(10px);
   color: #fff;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   z-index: 999;
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
-  display: none; /* Hidden by default */
+  display: none;
   transform: translateY(20px);
   transition: all 0.3s ease;
 }
@@ -543,9 +543,19 @@ body {
   transform: scale(1.1);
 }
 
-.chat-toggle-btn img {
-  width: 18px;
-  height: 18px;
+/* Toggle icon spans */
+.desktop-icon {
+  display: inline-block;
+  font-size: 18px;
+}
+
+.mobile-icon {
+  display: none;
+}
+
+.mobile-icon img {
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   border-radius: 50%;
 }
@@ -673,11 +683,16 @@ body {
     font-size: 13px;
   }
 
-  .chat-toggle-btn img {
-    width: 24px;
-    height: 24px;
+  /* Show image icon and hide emoji in mobile */
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: inline-block;
   }
 }
+
 
 
 
