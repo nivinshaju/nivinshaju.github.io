@@ -49,13 +49,22 @@
     </div>
   </div>
 
+  <!-- Chatbot UI -->
+  <div id="chatbot" class="chatbot">
+    <div class="chat-header">💬 Ask Nivin</div>
+    <div id="chat-content" class="chat-content">
+      <div class="bot">Hi! I’m your assistant. Ask me about skills, projects, or experience.</div>
+    </div>
+    <input type="text" id="user-input" placeholder="Ask something..." onkeydown="if(event.key==='Enter') respond()"/>
+  </div>
+  <button onclick="toggleChat()" class="chat-toggle">💬</button>
+
   <!-- JavaScript -->
   <script>
     function toggleConnect() {
       const skills = document.getElementById("skills-section");
       const connect = document.getElementById("connect-options");
 
-      // Toggle visibility
       if (skills.style.display !== "none") {
         skills.style.display = "none";
         connect.style.display = "flex";
@@ -63,6 +72,41 @@
         skills.style.display = "block";
         connect.style.display = "none";
       }
+    }
+
+    function toggleChat() {
+      const bot = document.getElementById('chatbot');
+      bot.style.display = bot.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function respond() {
+      const input = document.getElementById("user-input");
+      const content = document.getElementById("chat-content");
+      const msg = input.value.trim();
+
+      if (msg === "") return;
+
+      content.innerHTML += `<div class="user">${msg}</div>`;
+
+      let response = "Sorry, I didn't understand that.";
+
+      if (msg.toLowerCase().includes("project")) {
+        response = "I’ve built a FireBot, Eye Mouse, and a Jewelry Search App.";
+      } else if (msg.toLowerCase().includes("experience")) {
+        response = "I worked from March 17 to June 17 as an AI Developer at Twenty4 Jewellery Industries Pvt Ltd.";
+      } else if (msg.toLowerCase().includes("skills")) {
+        response = "Python, Flask, YOLOv8, ConvNeXt, FAISS, OpenCV, Google Drive API.";
+      } else if (msg.toLowerCase().includes("email")) {
+        response = "📧 nivinshaju@gmail.com";
+      } else if (msg.toLowerCase().includes("linkedin")) {
+        response = "🔗 linkedin.com/in/contactnivinshaju";
+      } else if (msg.toLowerCase().includes("qualification")) {
+        response = "BSc AI & ML (76%) | Higher Secondary (87%) | High School (92%)";
+      }
+
+      content.innerHTML += `<div class="bot">${response}</div>`;
+      input.value = "";
+      content.scrollTop = content.scrollHeight;
     }
   </script>
 
