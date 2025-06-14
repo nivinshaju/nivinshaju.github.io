@@ -369,10 +369,23 @@ body {
   z-index: 1000;
   backdrop-filter: blur(10px);
   transition: transform 0.3s;
+  position: relative; /* Add this if not already there */
 }
 
 .chat-toggle-btn:hover {
   transform: scale(1.1);
+}
+.chat-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background: #39ff14; /* Fluorescent green */
+  border-radius: 50%;
+  box-shadow: 0 0 6px #39ff14;
+  z-index: 1001;
 }
 
 .chat-toggle-btn::after {
