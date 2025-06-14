@@ -1,3 +1,4 @@
+/* ===== Global Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +9,10 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #000;
   color: #fff;
+  animation: fadeIn 0.8s ease forwards;
 }
 
+/* ===== Container ===== */
 .container {
   display: flex;
   justify-content: center;
@@ -18,6 +21,7 @@ body {
   padding: 30px;
 }
 
+/* ===== Intro Section ===== */
 .intro {
   display: flex;
   flex-wrap: wrap;
@@ -44,6 +48,13 @@ body {
   margin-bottom: 20px;
 }
 
+.text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
 .highlight {
   color: #fff;
   font-weight: bold;
@@ -54,18 +65,13 @@ body {
   font-weight: normal;
 }
 
-.text p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #aaa;
-  margin-bottom: 30px;
-}
-
+/* ===== Buttons ===== */
 .buttons-top {
   display: flex;
   gap: 15px;
   margin-bottom: 15px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .btn {
@@ -75,9 +81,9 @@ body {
   color: #fff;
   font-weight: bold;
   border-radius: 6px;
-  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -85,20 +91,25 @@ body {
   color: #fff;
 }
 
-/* Dropdown Connect */
-.connect-options {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 10px;
-  padding-left: 0;
+/* ===== Image Section ===== */
+.image {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
 }
 
-/* Skills Section */
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Skills Section ===== */
 .skills-section {
   padding: 30px 0 0;
-  color: #fff;
   text-align: left;
 }
 
@@ -109,10 +120,8 @@ body {
 
 .skills-list {
   list-style: none;
-  padding-left: 0;
   max-width: 600px;
   margin: 0 auto;
-  text-align: left;
 }
 
 .skills-list li {
@@ -136,57 +145,15 @@ body {
   }
 }
 
-.image {
-  flex: 1.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-  padding: 0;
-  overflow: hidden;
-}
-
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* Ensures image covers entire area */
-  max-width: none;
-  max-height: none;
-  border-radius: 0;
-}
-
-
-
-.connect-options {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.skills-section {
-  display: block;
-  padding: 30px 0 0;
-  color: #fff;
-  text-align: left;
-}
-
-/* Projects Page Styling */
-
+/* ===== Projects Page ===== */
 .projects-container {
   padding: 60px 30px;
-  background-color: #000;
-  color: #fff;
-  min-height: 100vh;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 .projects-heading {
   font-size: 32px;
   margin-bottom: 40px;
-  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -200,7 +167,7 @@ body {
 }
 
 .project-card {
-  background-color: #111;
+  background: #111;
   border: 1px solid #333;
   border-radius: 10px;
   padding: 25px;
@@ -234,159 +201,7 @@ body {
   line-height: 1.6;
 }
 
-.back-btn {
-  margin-top: 40px;
-  display: inline-block;
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 12px 24px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-  background: #fff;
-  color: #000;
-}
-
-/* Responsive layout for mobile devices */
-@media (max-width: 768px) {
-  .project-list {
-    padding: 0 20px;
-  }
-
-  .project-card {
-    padding: 20px;
-    font-size: 14px;
-  }
-
-  .project-card h2 {
-    font-size: 20px;
-  }
-
-  .project-card p {
-    font-size: 14px;
-  }
-
-  .back-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .projects-heading {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card {
-    padding: 15px;
-  }
-
-  .project-card h2 {
-    font-size: 18px;
-  }
-
-  .project-card p {
-    font-size: 13px;
-  }
-
-  .back-btn {
-    font-size: 13px;
-    padding: 8px 18px;
-  }
-
-  .projects-heading {
-    font-size: 22px;
-  }
-}
-
-/* Responsive layout for homepage and intro section */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  .intro {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .text {
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .text h1 {
-    font-size: 28px;
-  }
-
-  .text h2 {
-    font-size: 12px;
-  }
-
-  .text p {
-    font-size: 14px;
-  }
-
-  .buttons-top {
-    justify-content: center;
-  }
-
-  .skills-section {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .skills-list {
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-  .image {
-    flex: 1 1 100%;
-    padding: 20px;
-  }
-
-  .image img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .text h1 {
-    font-size: 24px;
-  }
-
-  .btn {
-    padding: 10px 18px;
-    font-size: 14px;
-  }
-
-  .skills-list li {
-    font-size: 16px;
-  }
-
-  .connect-options a {
-    font-size: 14px;
-  }
-}
-
-/* ====== GENERAL STYLES ====== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #000;
-  color: #fff;
-}
-
-/* ====== EXPERIENCE PAGE CONTAINER ====== */
+/* ===== Experience Page ===== */
 .experience-container {
   padding: 60px 30px;
   max-width: 900px;
@@ -394,18 +209,14 @@ body {
   text-align: center;
 }
 
-/* ====== HEADING ====== */
 .experience-heading {
   font-size: 32px;
   margin-bottom: 40px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
 }
 
-/* ====== EXPERIENCE CARD ====== */
 .experience-card {
-  background-color: #111;
+  background: #111;
   border: 1px solid #333;
   border-radius: 12px;
   padding: 25px 30px;
@@ -416,7 +227,6 @@ body {
 
 .experience-card h2 {
   font-size: 24px;
-  color: #fff;
   margin-bottom: 10px;
 }
 
@@ -426,311 +236,12 @@ body {
   line-height: 1.6;
 }
 
-/* ====== BACK BUTTON ====== */
-.back-btn {
-  display: inline-block;
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 12px 24px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  margin-top: 40px;
-}
-
-.back-btn:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-/* ====== RESPONSIVE DESIGN ====== */
-@media (max-width: 768px) {
-  .experience-heading {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-
-  .experience-card {
-    padding: 20px;
-  }
-
-  .experience-card h2 {
-    font-size: 20px;
-  }
-
-  .experience-card p {
-    font-size: 15px;
-  }
-
-  .back-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .experience-heading {
-    font-size: 22px;
-  }
-
-  .experience-card h2 {
-    font-size: 18px;
-  }
-
-  .experience-card p {
-    font-size: 14px;
-  }
-
-  .back-btn {
-    font-size: 13px;
-    padding: 8px 16px;
-  }
-}
-
-body {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-/* ======================
-   Chatbot Container
-====================== */
-.chatbot {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 320px;
-  background: rgba(17, 17, 17, 0.85);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
-  display: none;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-}
-
-.chatbot.show {
-  display: block;
-  transform: translateY(0);
-}
-
-/* ======================
-   Chat Toggle Button
-====================== */
-.chat-toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: transparent;
-  border: 2px solid #1e90ff;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  cursor: pointer;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  overflow: hidden;
-}
-
-.chat-toggle-btn:hover {
-  transform: scale(1.1);
-}
-
-/* ======================
-   Toggle Icons
-====================== */
-.desktop-icon {
-  display: inline-block;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.mobile-icon {
-  display: none;
-}
-
-.mobile-icon img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-/* ======================
-   Optional Tooltip
-====================== */
-.chat-toggle-btn::after {
-  content: "Chatbot";
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  background: #000;
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  white-space: nowrap;
-}
-
-.chat-toggle-btn:hover::after {
-  opacity: 1;
-}
-
-/* ======================
-   Header
-====================== */
-.chat-header {
-  background: #222;
-  padding: 12px;
-  font-weight: bold;
-  text-align: center;
-  border-bottom: 1px solid #333;
-  user-select: none;
-}
-
-/* ======================
-   Chat Area
-====================== */
-.chat-content {
-  max-height: 280px;
-  overflow-y: auto;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: #666 #222;
-}
-
-.chat-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-content::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 4px;
-}
-
-/* ======================
-   Chat Messages
-====================== */
-.chat-content .bot,
-.chat-content .user {
-  padding: 10px 14px;
-  border-radius: 12px;
-  max-width: 85%;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-
-.chat-content .bot {
-  background-color: #2a2a2a;
-  align-self: flex-start;
-}
-
-.chat-content .user {
-  background-color: #1e90ff;
-  color: #fff;
-  align-self: flex-end;
-}
-
-/* ======================
-   Input Area
-====================== */
-.chat-input-area {
-  display: flex;
-  border-top: 1px solid #333;
-  background: #000;
-}
-
-.chat-input-area input {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  background: #000;
-  color: white;
-  font-size: 14px;
-  outline: none;
-}
-
-.send-btn {
-  background: #1e90ff;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 16px;
-  border-left: 1px solid #333;
-}
-
-/* ======================
-   Mobile View
-====================== */
-@media (max-width: 600px) {
-  .chatbot {
-    width: 90%;
-    left: 5%;
-    right: auto;
-    bottom: 90px;
-  }
-
-  .chat-content {
-    max-height: 200px;
-    gap: 6px;
-  }
-
-  .chat-content .bot,
-  .chat-content .user {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  .chat-input-area input {
-    font-size: 13px;
-  }
-
-  /* 👇 Switch icons for mobile */
-  .desktop-icon {
-    display: none;
-  }
-
-  .mobile-icon {
-    display: inline-block;
-  }
-}
-
-
-
-
-
-
-
+/* ===== Certification Section ===== */
 .certification-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-top: 30px;
-}
-
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
-  margin: 0;
 }
 
 .section-title {
@@ -740,7 +251,6 @@ body {
 
 .section-title h1 {
   font-size: 32px;
-  margin: 0;
 }
 
 .section-title p {
@@ -770,28 +280,285 @@ body {
   font-size: 14px;
 }
 
-.button-container {
-  text-align: center;
-  margin-top: 30px;
-}
-
+/* ===== Buttons (shared) ===== */
+.back-btn,
 .back-button {
-  background-color: white;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
   font-weight: bold;
-  transition: 0.3s ease;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 40px;
 }
 
+.back-btn:hover,
 .back-button:hover {
-  background-color: #f2f2f2;
+  background: #fff;
+  color: #000;
 }
 
-@media screen and (max-width: 480px) {
-  body {
-    padding: 20px 10px;
+/* ===== Chatbot Container ===== */
+.chatbot {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 320px;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.chatbot.show {
+  display: block;
+  transform: translateY(0);
+}
+
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid #1e90ff;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+
+.chat-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+.chat-toggle-btn::after {
+  content: "Chatbot";
+  position: absolute;
+  bottom: 70px;
+  background: #000;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.chat-toggle-btn:hover::after {
+  opacity: 1;
+}
+
+.desktop-icon {
+  font-size: 20px;
+}
+
+.mobile-icon {
+  display: none;
+}
+
+.mobile-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* ===== Chat Area ===== */
+.chat-header {
+  background: #222;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.chat-content {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #666 #222;
+}
+
+.chat-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-content::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+.chat-content .bot,
+.chat-content .user {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 85%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.chat-content .bot {
+  background: #2a2a2a;
+  align-self: flex-start;
+}
+
+.chat-content .user {
+  background: #1e90ff;
+  color: white;
+  align-self: flex-end;
+}
+
+/* ===== Chat Input ===== */
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #333;
+  background: #000;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #000;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.send-btn {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  border-left: 1px solid #333;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .text h1 {
+    font-size: 28px;
+  }
+
+  .text h2 {
+    font-size: 12px;
+  }
+
+  .text p,
+  .skills-list li,
+  .project-card p,
+  .experience-card p {
+    font-size: 14px;
+  }
+
+  .project-card h2,
+  .experience-card h2 {
+    font-size: 20px;
+  }
+
+  .skills-section,
+  .skills-list {
+    text-align: center;
+  }
+
+  .image {
+    padding: 20px;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .chatbot {
+    width: 90%;
+    left: 5%;
+    bottom: 90px;
+  }
+
+  .chat-content {
+    max-height: 200px;
+    gap: 6px;
+  }
+
+  .chat-content .bot,
+  .chat-content .user {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .chat-input-area input {
+    font-size: 13px;
+  }
+
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .text h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .project-card h2,
+  .experience-card h2 {
+    font-size: 18px;
+  }
+
+  .project-card p,
+  .experience-card p {
+    font-size: 13px;
+  }
+
+  .back-btn,
+  .back-button {
+    font-size: 13px;
+    padding: 8px 16px;
   }
 
   .section-title h1 {
@@ -808,11 +575,5 @@ body {
 
   .card p {
     font-size: 12px;
-  }
-
-  .back-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 14px;
   }
 }
