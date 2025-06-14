@@ -369,7 +369,6 @@ body {
   z-index: 1000;
   backdrop-filter: blur(10px);
   transition: transform 0.3s;
-   /* Add this if not already there */
 }
 
 .chat-toggle-btn:hover {
