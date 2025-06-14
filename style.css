@@ -493,13 +493,15 @@ body {
   animation: fadeIn 0.8s ease forwards;
 }
 
-/* Chatbot Container */
+/* ======================
+   Chatbot Container
+====================== */
 .chatbot {
   position: fixed;
   bottom: 100px;
   right: 20px;
   width: 320px;
-  background: rgba(17, 17, 17, 0.85); 
+  background: rgba(17, 17, 17, 0.85);
   backdrop-filter: blur(10px);
   color: #fff;
   border-radius: 15px;
@@ -517,7 +519,9 @@ body {
   transform: translateY(0);
 }
 
-/* Chat Toggle Button */
+/* ======================
+   Chat Toggle Button
+====================== */
 .chat-toggle-btn {
   position: fixed;
   bottom: 20px;
@@ -529,24 +533,25 @@ body {
   height: 55px;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: none;
   backdrop-filter: blur(10px);
   transition: transform 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   padding: 0;
+  overflow: hidden;
 }
 
 .chat-toggle-btn:hover {
   transform: scale(1.1);
 }
 
-/* Toggle icon spans */
+/* ======================
+   Toggle Icons
+====================== */
 .desktop-icon {
   display: inline-block;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -555,13 +560,15 @@ body {
 }
 
 .mobile-icon img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   border-radius: 50%;
 }
 
-/* Optional Tooltip */
+/* ======================
+   Optional Tooltip
+====================== */
 .chat-toggle-btn::after {
   content: "Chatbot";
   position: absolute;
@@ -581,7 +588,9 @@ body {
   opacity: 1;
 }
 
-/* Header Section */
+/* ======================
+   Header
+====================== */
 .chat-header {
   background: #222;
   padding: 12px;
@@ -591,7 +600,9 @@ body {
   user-select: none;
 }
 
-/* Chat Message Content Area */
+/* ======================
+   Chat Area
+====================== */
 .chat-content {
   max-height: 280px;
   overflow-y: auto;
@@ -606,12 +617,15 @@ body {
 .chat-content::-webkit-scrollbar {
   width: 6px;
 }
+
 .chat-content::-webkit-scrollbar-thumb {
   background-color: #666;
   border-radius: 4px;
 }
 
-/* Message Bubbles */
+/* ======================
+   Chat Messages
+====================== */
 .chat-content .bot,
 .chat-content .user {
   padding: 10px 14px;
@@ -633,7 +647,9 @@ body {
   align-self: flex-end;
 }
 
-/* Input Area */
+/* ======================
+   Input Area
+====================== */
 .chat-input-area {
   display: flex;
   border-top: 1px solid #333;
@@ -660,7 +676,9 @@ body {
   border-left: 1px solid #333;
 }
 
-/* Responsive: Mobile View */
+/* ======================
+   Mobile View
+====================== */
 @media (max-width: 600px) {
   .chatbot {
     width: 90%;
@@ -684,7 +702,7 @@ body {
     font-size: 13px;
   }
 
-  /* Show image icon and hide emoji in mobile */
+  /* 👇 Switch icons for mobile */
   .desktop-icon {
     display: none;
   }
@@ -693,6 +711,7 @@ body {
     display: inline-block;
   }
 }
+
 
 
 
