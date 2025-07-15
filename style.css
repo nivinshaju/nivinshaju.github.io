@@ -7,12 +7,9 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Beautiful gradient background */
+  background: #000;
   color: #fff;
-  line-height: 1.6;
-  padding: 20px 15px;
-  overflow-x: hidden;
-  animation: fadeIn 1s ease-out;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 /* ===== Container ===== */
@@ -29,9 +26,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  background: rgba(17, 17, 17, 0.9);
+  background: #111;
   border-radius: 15px;
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
@@ -41,32 +38,31 @@ body {
 }
 
 .text h2 {
-  font-size: 16px;
-  color: #aaa;
+  font-size: 14px;
+  color: #888;
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
 .text h1 {
-  font-size: 40px;
+  font-size: 36px;
   margin-bottom: 20px;
-  font-weight: 700;
 }
 
 .text p {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #ddd;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #aaa;
   margin-bottom: 30px;
 }
 
 .highlight {
-  color: #1e90ff;
+  color: #fff;
   font-weight: bold;
 }
 
 .sub-highlight {
   color: #ccc;
+  font-weight: normal;
 }
 
 /* ===== Buttons ===== */
@@ -81,18 +77,18 @@ body {
 .btn {
   text-decoration: none;
   padding: 12px 24px;
-  background: #1e90ff;
+  background: transparent;
   color: #fff;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: #00bfff;
-  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 /* ===== Image Section ===== */
@@ -109,33 +105,23 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.image img:hover {
-  transform: scale(1.1);
 }
 
 /* ===== Skills Section ===== */
 .skills-section {
-  padding: 30px 0;
+  padding: 30px 0 0;
   text-align: left;
 }
 
 .skills-section h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .skills-list {
   list-style: none;
   max-width: 600px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
 }
 
 .skills-list li {
@@ -143,15 +129,21 @@ body {
   margin: 15px 0;
   opacity: 0;
   transform: translateX(-40px);
-  animation: slideIn 0.8s forwards;
+  animation: slideLeft 0.8s forwards;
 }
 
 .skills-list li:nth-child(1) { animation-delay: 0.2s; }
 .skills-list li:nth-child(2) { animation-delay: 0.4s; }
 .skills-list li:nth-child(3) { animation-delay: 0.6s; }
 .skills-list li:nth-child(4) { animation-delay: 0.8s; }
+.skills-list li:nth-child(5) { animation-delay: 1.0s; }
+.skills-list li:nth-child(6) { animation-delay: 1.2s; }
+.skills-list li:nth-child(7) { animation-delay: 1.4s; }
+.skills-list li:nth-child(8) { animation-delay: 1.6s; }
+.skills-list li:nth-child(9) { animation-delay: 1.8s; }
+.skills-list li:nth-child(10) { animation-delay: 2.0s; }
 
-@keyframes slideIn {
+@keyframes slideLeft {
   to {
     opacity: 1;
     transform: translateX(0);
@@ -168,8 +160,7 @@ body {
   font-size: 32px;
   margin-bottom: 40px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .project-list {
@@ -183,15 +174,15 @@ body {
 .project-card {
   background: #111;
   border: 1px solid #333;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 25px;
   text-align: left;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  background-color: #333;
+  transform: scale(1.02);
+  background-color: #1a1a1a;
 }
 
 .project-card h2 {
@@ -200,12 +191,12 @@ body {
 }
 
 .project-card h2 a {
-  color: #1e90ff;
+  color: #fff;
   text-decoration: none;
 }
 
 .project-card h2 a:hover {
-  color: #00bfff;
+  color: #ccc;
   text-decoration: underline;
 }
 
@@ -215,16 +206,141 @@ body {
   line-height: 1.6;
 }
 
+/* ===== Experience Page ===== */
+.experience-container {
+  padding: 60px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.experience-heading {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.experience-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.experience-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.experience-card p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ===== Base Reset & Font ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000; /* True black background */
+  color: #fff;
+  line-height: 1.6;
+  padding: 30px 15px;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.section-title span {
+  color: #fff;
+}
+
+.section-title p {
+  font-size: 15px;
+  color: #bbb;
+}
+
+/* ===== Certification Cards ===== */
+.card {
+  background-color: #111;
+  border: 1px solid #444;
+  padding: 24px 28px;
+  margin: 20px auto;
+  border-radius: 14px;
+  max-width: 750px;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12);
+}
+
+.card h2 {
+  color: #0ff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #ddd;
+  margin: 6px 0;
+}
+
+/* ===== Button Styling ===== */
+.button-container {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
 /* ===== Chatbot Container ===== */
 .chatbot {
   position: fixed;
-  bottom: 20px;
+  bottom: 100px;
   right: 20px;
   width: 320px;
   background: rgba(17, 17, 17, 0.85);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   display: none;
   transform: translateY(20px);
@@ -241,53 +357,67 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #1e90ff, #00bfff);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  background: transparent;
+  border: 2px solid #1e90ff;
+  border-radius: 70%;
+  width: 55px;
+  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
 }
 
 .chat-toggle-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
-
 .chat-toggle-btn::before {
   content: '';
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 14px;
-  height: 14px;
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
   background: #39ff14; /* Fluorescent green */
   border-radius: 50%;
-  box-shadow: 0 0 8px #39ff14;
+  box-shadow: 0 0 6px #39ff14;
   z-index: 1001;
 }
 
 .chat-toggle-btn::after {
   content: "Niaa🧚🏻‍♀️";
   position: absolute;
-  bottom: 75px;
+  bottom: 70px;
   background: #000;
   color: white;
-  padding: 6px 10px;
+  padding: 4px 8px;
   font-size: 12px;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s;
   white-space: nowrap;
 }
 
 .chat-toggle-btn:hover::after {
   opacity: 1;
+}
+
+.desktop-icon {
+  font-size: 40px;
+}
+
+.mobile-icon {
+  display: none;
+}
+
+.mobile-icon img {
+  width: 30px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 /* ===== Chat Area ===== */
@@ -321,7 +451,7 @@ body {
 
 .chat-content .bot,
 .chat-content .user {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 12px;
   font-size: 14px;
   max-width: 85%;
@@ -336,51 +466,156 @@ body {
 
 .chat-content .user {
   background: #1e90ff;
+  color: white;
   align-self: flex-end;
 }
 
-/* ===== Input Field ===== */
-.chat-input {
+/* ===== Chat Input ===== */
+.chat-input-area {
   display: flex;
-  align-items: center;
-  padding: 12px;
-  background: #111;
   border-top: 1px solid #333;
+  background: #000;
 }
 
-.chat-input input {
-  width: 80%;
-  padding: 10px;
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  margin-right: 12px;
-  font-size: 14px;
-}
-
-.chat-input button {
+.chat-input-area input {
+  flex: 1;
   padding: 12px;
-  background: #1e90ff;
   border: none;
-  border-radius: 8px;
+  background: #000;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.send-btn {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 16px;
+  border-left: 1px solid #333;
 }
 
-.chat-input button:hover {
-  background: #00bfff;
-}
-
+/* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
   .intro {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    padding: 30px 20px;
     text-align: center;
+  }
+
+  .text h1 {
+    font-size: 28px;
+  }
+
+  .text h2 {
+    font-size: 12px;
+  }
+
+  .text p,
+  .skills-list li,
+  .project-card p,
+  .experience-card p {
+    font-size: 14px;
+  }
+
+  .project-card h2,
+  .experience-card h2 {
+    font-size: 20px;
+  }
+
+  .skills-section,
+  .skills-list {
+    text-align: center;
+  }
+
+  .image {
+    padding: 20px;
   }
 
   .image img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto;
+  }
+
+  .chatbot {
+    width: 90%;
+    left: 5%;
+    bottom: 90px;
+  }
+
+  .chat-content {
+    max-height: 200px;
+    gap: 6px;
+  }
+
+  .chat-content .bot,
+  .chat-content .user {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .chat-input-area input {
+    font-size: 13px;
+  }
+
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .text h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .project-card h2,
+  .experience-card h2 {
+    font-size: 18px;
+  }
+
+  .project-card p,
+  .experience-card p {
+    font-size: 13px;
+  }
+
+  .back-btn,
+  .back-button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .section-title h1 {
+    font-size: 22px;
+  }
+
+  .section-title p {
+    font-size: 12px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
   }
 }
