@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nivin Shaju | Futuristic AI Developer</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -15,7 +15,7 @@
 
 <body>
 
-<!-- PARALLAX LAYERS -->
+<!-- PARALLAX BACKGROUND -->
 <div class="parallax layer-back"></div>
 <div class="parallax layer-mid"></div>
 <div class="parallax layer-front"></div>
@@ -30,7 +30,6 @@
         <span id="chat-close">✖</span>
     </div>
     <div id="chat-body"></div>
-
     <div class="chat-input-area">
         <input id="chat-input" type="text" placeholder="Ask me anything..." />
         <button id="chat-send">➤</button>
@@ -39,7 +38,6 @@
 
 <!-- HERO SECTION -->
 <section class="hero">
-
     <div class="hero-container">
 
         <!-- Profile Image -->
@@ -50,15 +48,17 @@
 
         <div class="hero-content">
             <h1 class="hero-title glow">Nivin Shaju</h1>
-            <p class="hero-subtitle">AI Developer • Computer Vision Engineer • Deep Learning Specialist</p>
-            <button class="btn-neon">Explore Portfolio</button>
+            <p class="hero-subtitle">AI Developer • Computer Vision • Deep Learning</p>
+
+            <div class="hero-buttons">
+                <a href="projects.html" class="btn-neon">View Projects</a>
+                <a href="mailto:22bam052@stc.ac.in" class="btn-outline">Contact Me</a>
+            </div>
         </div>
-
     </div>
-
 </section>
 
-<!-- SKILLS SECTION -->
+<!-- SKILLS -->
 <section class="section">
     <h2 class="section-title neon-text">Technical Skills</h2>
 
@@ -68,34 +68,35 @@
     </div>
 
     <div class="skill-bar">
-        <span>Computer Vision (OpenCV, YOLOv8)</span>
+        <span>Computer Vision (YOLOv8, OpenCV)</span>
         <div class="bar-bg"><div class="bar-fill" style="--level: 92%"></div></div>
     </div>
 
     <div class="skill-bar">
         <span>Deep Learning (ViT, CNNs)</span>
-        <div class="bar-bg"><div class="bar-fill" style="--level: 85%"></div></div>
+        <div class="bar-bg"><div class="bar-fill" style="--level: 88%"></div></div>
     </div>
 
     <div class="skill-bar">
         <span>FastAPI / Flask</span>
-        <div class="bar-bg"><div class="bar-fill" style="--level: 88%"></div></div>
+        <div class="bar-bg"><div class="bar-fill" style="--level: 86%"></div></div>
     </div>
-
 </section>
 
-<!-- INTERACTIVE GLASS PANELS -->
+<!-- EXPERIENCE -->
 <section class="section">
     <h2 class="section-title neon-text">Experience</h2>
 
     <div class="glass-panel glass-tilt">
         <h3>AI Developer — Twenty4 Jewellery</h3>
-        <p>Developed jewelry similarity engine with YOLOv8 + ViT embeddings.</p>
+        <p class="date">May 2025 – Nov 2025</p>
+        <p>Developed a YOLOv8 + ViT similarity engine with metadata-driven search.</p>
     </div>
 
     <div class="glass-panel glass-tilt">
         <h3>AI Developer Intern — Twenty4 Jewellery</h3>
-        <p>Created AI-powered recognition and similarity search system.</p>
+        <p class="date">Mar 2025 – May 2025</p>
+        <p>Built a jewelry recognition + similarity system using ViT.</p>
     </div>
 </section>
 
@@ -106,6 +107,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
