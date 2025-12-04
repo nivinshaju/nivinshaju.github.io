@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Nivin Shaju</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nivin Shaju | Projects</title>
+
+    <link rel="stylesheet" href="projects.css" />
+
+    <!-- GSAP for motion effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 
 <body>
 
-<header class="projects-header">
-    <h1 class="glow">Projects</h1>
-    <a href="index.html" class="btn-secondary">⟵ Back to Home</a>
+<div class="background-grid"></div>
+
+<header class="header">
+    <h1 class="title">My Projects</h1>
+    <a href="index.html" class="back-btn">← Back to Home</a>
 </header>
 
-<section class="section">
+<section class="projects-section">
 
-    <div class="project-grid">
-
-        <div class="project-card">
-            <h2>AI-Powered Conversational Platform</h2>
-            <p class="tech">FastAPI • GPT • Perplexity API • MySQL • MongoDB</p>
-            <p>
-                Built a scalable conversational AI with multi-context chat, memory architecture, real-time inference, 
-                and emotional-state modeling.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h2>Jewellery Similarity Search Engine</h2>
-            <p class="tech">YOLOv8 • ViT • Flask</p>
-            <p>
-                Developed a jewelry detection and similarity matching system using YOLOv8 segmentation and ViT embeddings.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h2>Eye-Tracking Mouse Control</h2>
-            <p class="tech">Python • OpenCV • dlib • Tkinter</p>
-            <p>
-                Created an accessibility tool that maps eye gaze to cursor movement and blink detection for clicking.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h2>Fire-Fighting Robot</h2>
-            <p class="tech">Arduino • Sensors • L298N</p>
-            <p>
-                Built an autonomous robot that detects fire and extinguishes it using a pump and obstacle avoidance logic.
-            </p>
-        </div>
-
+    <!-- Project 1 -->
+    <div class="project-card">
+        <h2>AI-Powered Conversational Platform</h2>
+        <p class="tech">FastAPI • GPT • Perplexity API • MySQL • MongoDB</p>
+        <p>
+            Built a scalable multi-context conversational AI with memory layers (short/mid/long-term),
+            emotional modeling, WebSocket inference, and context-aware reasoning.
+        </p>
     </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+        <h2>Jewellery Similarity Search Engine</h2>
+        <p class="tech">YOLOv8 • Vision Transformers • Flask</p>
+        <p>
+            Developed a real-time jewelry detection + similarity engine using YOLOv8 segmentation and ViT embeddings
+            with metadata-driven search capabilities.
+        </p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+        <h2>Eye-Tracking Mouse Control</h2>
+        <p class="tech">Python • OpenCV • Dlib • Tkinter</p>
+        <p>
+            Assistive-tech eye tracking system enabling cursor movement + blink clicks with real-time gaze mapping.
+        </p>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+        <h2>Autonomous Fire-Fighting Robot</h2>
+        <p class="tech">Arduino • Sensors • L298N</p>
+        <p>
+            Autonomous robot that detects fire using IR sensors and extinguishes it using a water pump, 
+            with ultrasonic-based obstacle avoidance.
+        </p>
+    </div>
+
 </section>
 
-<footer>
-    <p>© 2025 Nivin Shaju — Portfolio</p>
-</footer>
+<footer>© 2025 Nivin Shaju — Portfolio</footer>
+
+<script>
+// GSAP fade-in animations
+gsap.from(".project-card", {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out"
+});
+</script>
 
 </body>
 </html>
+
 
 
 
