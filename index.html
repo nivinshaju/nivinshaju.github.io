@@ -4,70 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nivin | AI Developer</title>
+
   <link rel="stylesheet" href="style.css"/>
   <link rel="icon" href="assets/profile.png" />
+
   <meta name="description" content="Portfolio of Nivin Shaju, AI Developer with projects in Deep Learning, Robotics, and Computer Vision.">
   <meta name="keywords" content="AI Developer, Python, Deep Learning, Robotics, Nivin Shaju">
 </head>
+
 <body>
 
   <main class="container">
     <section class="intro">
+
       <div class="text">
         <h2>WELCOME TO MY WORLD</h2>
-        <h1>Hi, I'm <span class="highlight">Nivin Shaju</span><br><span class="sub-highlight">an AI Developer</span></h1>
+
+        <h1>
+          Hi, I'm <span class="highlight">Nivin Shaju</span><br>
+          <span class="sub-highlight">an AI Developer</span>
+        </h1>
+
         <p>I build AI-powered applications using Python, IoT, and Deep Learning. Projects include a fire-fighting robot, an eye-controlled mouse, and an AI jewelry search web app.</p>
-        
+
         <div class="buttons-top">
-          <a href="projects.html" class="btn">📁 Projects</a>                
-          <a href="experience.html" class="btn">💼 Experience</a>  
+          <a href="projects.html" class="btn">📁 Projects</a>
+          <a href="experience.html" class="btn">💼 Experience</a>
           <a href="qualifications.html" class="btn">🎓 Qualifications</a>
           <a href="certifications.html" class="btn">📜 Certifications</a>
+          
           <button class="btn" onclick="toggleConnect()">📬 Connect with Me</button>
-          <button class="chat-toggle-btn" onclick="toggleChat()" title="Chat with Nivin's Assistant" aria-label="Open chatbot">
+
+          <button class="chat-toggle-btn" onclick="toggleChat()" title="Chat with Nivin's Assistant">
             <span class="desktop-icon">🧚🏻‍♀️</span>
             <span class="mobile-icon">
-              <img src="assets/chatbot-icon.png" alt="Chatbot Icon" />
+              <img src="assets/chatbot-icon.png" alt="Chatbot Icon"/>
             </span>
           </button>
-        </div>               
+        </div>
 
+        <!-- Chatbot -->
         <div class="chatbot" id="chatbot">
           <div class="chat-header">Nivin's Assistant</div>
+
           <div class="chat-content" id="chat-content">
-            <div class="bot">Hi! I'm Nivin's Assistant Niaa🧚🏻‍♀️. Ask Me About Projects , Experince , Skills </div>
+            <div class="bot">Hi! I'm Nivin's Assistant Niaa🧚🏻‍♀️. Ask Me About Projects, Experience, or Skills.</div>
           </div>
+
           <div class="chat-input-area">
             <input type="text" id="user-input" placeholder="Ask something..." onkeydown="handleInput(event)" />
             <button onclick="sendMessage()" class="send-btn">➤</button>
           </div>
-        </div> 
-
-        <div id="connect-options" class="connect-options">
-          <a href="mailto:nivinshaju@gmail.com" class="btn">📧 Email</a>
-          <a href="https://www.linkedin.com/in/contactnivinshaju" class="btn" target="_blank">🔗 LinkedIn</a>
         </div>
 
+        <!-- Connect Options -->
+        <div id="connect-options" class="connect-options">
+          <a href="mailto:nivinshaju@gmail.com" class="btn">📧 Email</a>
+          <a href="https://www.linkedin.com/in/contactnivinshaju" target="_blank" class="btn">🔗 LinkedIn</a>
+        </div>
+
+        <!-- Skills Section -->
         <div id="skills-section" class="skills-section">
           <h2>Skills</h2>
+
           <ul class="skills-list">
-           <li>🔹 Python, C++, Arduino C</li>
-           <li>🔹 Flask </li>
-           <li>🔹 Machine Learning, Deep Learning</li>
-           <li>🔹 YOLOv8, ConvNeXt & FAISS</li>
-           <li>🔹 OpenCV, Dlib, Eye Tracking</li>
-           <li>🔹 Feature Engineering & Object Detection</li>
-           <li>🔹 Image Processing & Computer Vision</li>
-           <li>🔹 Embedded Systems & Sensor Integration</li>
-           <li>🔹 Robotics & Automation</li>
-           <li>🔹 Git, Jupyter, Colab & Flutter , VS code</li>
+            <li>🔹 Python, C++, Arduino C</li>
+            <li>🔹 Flask</li>
+            <li>🔹 Machine Learning & Deep Learning</li>
+            <li>🔹 YOLOv8, ConvNeXt & FAISS</li>
+            <li>🔹 OpenCV, Dlib, Eye Tracking</li>
+            <li>🔹 Feature Engineering & Object Detection</li>
+            <li>🔹 Image Processing & Computer Vision</li>
+            <li>🔹 Embedded Systems & Sensor Integration</li>
+            <li>🔹 Robotics & Automation</li>
+            <li>🔹 Git, Jupyter, Colab, Flutter, VS Code</li>
           </ul>
         </div>
       </div>
 
       <div class="image">
-        <img src="assets/profile.png" alt="Nivin Shaju" />
+        <img src="assets/profile.png" alt="Nivin Shaju"/>
       </div>
+
     </section>
   </main>
 
@@ -75,31 +93,25 @@
     function toggleConnect() {
       const skills = document.getElementById("skills-section");
       const connect = document.getElementById("connect-options");
-      if (skills.style.display !== "none") {
-        skills.style.display = "none";
-        connect.style.display = "flex";
-      } else {
-        skills.style.display = "block";
-        connect.style.display = "none";
-      }
+
+      skills.style.display = skills.style.display === "none" ? "block" : "none";
+      connect.style.display = connect.style.display === "flex" ? "none" : "flex";
     }
 
     function toggleChat() {
       const bot = document.getElementById("chatbot");
-      bot.style.display = (bot.style.display === "none" || bot.style.display === "") ? "block" : "none";
+      bot.classList.toggle("show");
     }
 
     function handleInput(event) {
-      if (event.key === "Enter") {
-        sendMessage();
-      }
+      if (event.key === "Enter") sendMessage();
     }
 
     function sendMessage() {
       const input = document.getElementById("user-input");
       const content = document.getElementById("chat-content");
       const msg = input.value.trim();
-      if (msg === "") return;
+      if (!msg) return;
 
       content.innerHTML += `<div class="user">${msg}</div>`;
       input.value = "";
@@ -113,25 +125,21 @@
 
       setTimeout(() => {
         let response = "Sorry, I didn't understand that.";
-        const lower = msg.toLowerCase();
-        if (lower.includes("project")) {
-          response = "I’ve built a FireBot, Eye Mouse, and a Jewelry Search App.";
-        } else if (lower.includes("experience")) {
-          response = "I worked from March 17 to June 17 as an AI Developer at Twenty4 Jewellery Industries Pvt Ltd.";
-        } else if (lower.includes("skills")) {
-          response = "Python, Flask, YOLOv8, ConvNeXt, FAISS, OpenCV, Google Drive API.";
-        } else if (lower.includes("email")) {
-          response = "📧 nivinshaju@gmail.com";
-        } else if (lower.includes("linkedin")) {
-          response = "🔗 linkedin.com/in/contactnivinshaju";
-        } else if (lower.includes("qualification")) {
-          response = "🎓 BSc AI & ML (65.9%) | Higher Secondary (89.4%) | High School (98%)";
-        }
+        const m = msg.toLowerCase();
+
+        if (m.includes("project")) response = "I’ve built a FireBot, Eye Mouse, and a Jewelry Search App.";
+        else if (m.includes("experience")) response = "I worked as an AI Developer at Twenty4 Jewellery Industries Pvt Ltd.";
+        else if (m.includes("skills")) response = "Python, AI, OpenCV, YOLOv8, ConvNeXt, FAISS, Vision Systems.";
+        else if (m.includes("email")) response = "📧 nivinshaju@gmail.com";
+        else if (m.includes("linkedin")) response = "🔗 linkedin.com/in/contactnivinshaju";
+        else if (m.includes("qualification")) response = "🎓 BSc AI & ML (65.9%) | Higher Secondary 89.4% | High School 98%";
+
         typing.remove();
         content.innerHTML += `<div class="bot">${response}</div>`;
         content.scrollTop = content.scrollHeight;
       }, 800);
     }
   </script>
+
 </body>
 </html>
