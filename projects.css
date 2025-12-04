@@ -1,3 +1,9 @@
+/* Make sure parallax layers don’t block hover */
+.parallax {
+    pointer-events: none;
+}
+
+/* Page Title Section */
 .projects-header {
     text-align: center;
     padding: 80px 20px 40px;
@@ -14,31 +20,49 @@
     display: inline-block;
 }
 
+/* Project Grid */
 .projects-section {
     padding: 40px 10%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 35px;
+    perspective: 1200px; /* Enables 3D tilt depth */
 }
 
+/* Project Cards */
 .project-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid #00aaff44;
     padding: 25px;
+    background: rgba(255,255,255,0.06);
     border-radius: 14px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 20px #002244;
-    transition: 0.3s;
+    border: 1px solid #00aaff44;
+    box-shadow: 0 0 25px rgba(0,150,255,0.15);
+    backdrop-filter: blur(14px);
+    transition: 0.25s ease;
+    cursor: pointer;
+    transform-style: preserve-3d;
 }
 
+/* Neon hover glow */
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px #0099ff;
+    box-shadow: 
+        0 0 35px #00aaff,
+        0 0 70px #0066ff;
+}
+
+.project-card h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
 }
 
 .tech {
-    color: #00bbff;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    color: #00cfff;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
 }
+
+/* Smooth 3D reset */
+.glass-tilt {
+    transform-style: preserve-3d;
+}
+
 
