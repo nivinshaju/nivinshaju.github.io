@@ -1,219 +1,188 @@
-/* GLOBAL ------------------------------------------- */
 body {
     margin: 0;
-    background: #0d0f12;
-    color: #e9e9e9;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: #02040a;
+    color: #d7e3ff;
     overflow-x: hidden;
 }
 
-.background-grid {
+/* PARALLAX LAYERS */
+.parallax {
     position: fixed;
     inset: 0;
-    background-image: 
-        linear-gradient(#1e2024 1px, transparent 1px),
-        linear-gradient(90deg, #1e2024 1px, transparent 1px);
-    background-size: 80px 80px;
-    opacity: 0.15;
-    z-index: -10;
+    pointer-events: none;
+    z-index: -2;
 }
 
-/* HERO --------------------------------------------- */
+.layer-back {
+    background: radial-gradient(circle, #001f3f 0%, transparent 70%);
+    filter: blur(80px);
+}
+
+.layer-mid {
+    background: url('https://i.ibb.co/2kY9cCc/grid.png');
+    opacity: 0.08;
+    transform: scale(1.2);
+}
+
+.layer-front {
+    background: radial-gradient(circle, rgba(0,150,255,0.15), transparent 80%);
+    mix-blend-mode: screen;
+}
+
+/* HERO */
 .hero {
-    height: 90vh;
+    height: 95vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
-}
-
-#planetCanvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.18; /* softer hologram */
-    z-index: -5;
-}
-
-/* HERO LAYOUT */
-.hero-inner {
-    display: flex;
     align-items: center;
+}
+
+.hero-container {
+    display: flex;
     gap: 60px;
     flex-wrap: wrap;
+    text-align: center;
 }
 
-/* Profile image */
-.profile-frame {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #0ab6ff55;
-    box-shadow: 0 0 20px #0ab6ff22;
-    transition: 0.3s;
+/* Futuristic Profile Frame */
+.pfp-frame {
+    position: relative;
+    width: 230px;
+    height: 230px;
 }
 
-.profile-frame:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px #0ab6ff55;
-}
-
-.profile-img {
+.pfp-img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    border: 3px solid #00aaff;
     object-fit: cover;
 }
 
-/* Centered title */
-.hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0;
+.ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #00ccff;
+    border-right: 4px solid #0088ff;
+    animation: spin 5s linear infinite;
 }
 
-.hero-subtitle {
-    opacity: 0.7;
-    margin-top: 8px;
-}
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* Buttons */
-.hero-buttons {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-}
-
-.btn-primary {
+/* BUTTON */
+.btn-neon {
+    background: #00aaff;
     padding: 12px 25px;
-    background: #0ab6ff;
-    color: #000;
-    font-weight: 600;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-.btn-outline {
-    padding: 12px 25px;
-    border: 2px solid #0ab6ff;
-    color: #0ab6ff;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-/* SECTION ------------------------------------------ */
-.section {
-    width: 85%;
-    margin: auto;
-    padding: 60px 0;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* ABOUT text */
-.section-text {
-    opacity: 0.8;
-    line-height: 1.7;
-}
-
-/* SKILLS -------------------------------------------- */
-.skills-list {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-}
-
-.skill-item {
-    background: rgba(255,255,255,0.03);
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #1f2226;
-    transition: 0.2s;
-}
-
-.skill-item:hover {
-    background: rgba(255,255,255,0.06);
-}
-
-/* EXPERIENCE ---------------------------------------- */
-.glass-card {
-    margin-top: 25px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid #1f2226;
-    padding: 20px;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    color: black;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 12px #00ccff;
+}
+
+/* SKILL BARS */
+.skill-bar {
+    margin: 25px 0;
+}
+
+.bar-bg {
+    width: 100%;
+    height: 14px;
+    background: #0d1629;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: var(--level);
+    height: 100%;
+    background: linear-gradient(90deg, #00eaff, #0077ff);
+    box-shadow: 0 0 20px #00aaff;
+    animation: fillAnim 2s ease forwards;
+}
+
+@keyframes fillAnim {
+    from { width: 0; }
+}
+
+/* GLASS PANELS */
+.glass-panel {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #00aaff55;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    backdrop-filter: blur(12px);
     transition: 0.3s;
 }
 
-.glass-card:hover {
-    background: rgba(255,255,255,0.07);
-}
-
-.date {
-    opacity: 0.6;
-    font-size: 0.9rem;
-}
-
-/* CHATBOT ------------------------------------------- */
+/* CHATBOT */
 #chatbot-button {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #0ab6ff;
+    bottom: 22px;
+    right: 22px;
+    background: #00aaff;
     color: #000;
+    padding: 15px;
+    font-size: 26px;
     border-radius: 50%;
-    padding: 14px;
     cursor: pointer;
-    font-size: 24px;
-    box-shadow: 0 0 20px #0ab6ff44;
+    box-shadow: 0 0 15px #00ccff;
 }
 
-#chatbot-container {
-    width: 300px;
-    height: 360px;
+#chatbot-window {
     position: fixed;
     bottom: 90px;
-    right: 25px;
-    background: #111317;
-    border: 1px solid #1f2226;
+    right: 22px;
+    width: 320px;
+    height: 420px;
+    background: #0a0f1a;
+    border: 2px solid #00aaff55;
     border-radius: 12px;
     display: none;
     flex-direction: column;
 }
 
-#chatbot-header {
-    background: #181a1e;
-    padding: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-#chatbot-messages {
-    flex: 1;
-    padding: 12px;
-    overflow-y: auto;
-    font-size: 0.9rem;
-}
-
-#chatbot-input {
+.chat-header {
     padding: 10px;
-    background: #181a1e;
-    border: none;
-    outline: none;
-    color: #fff;
+    background: #001d33;
+    color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    opacity: 0.7;
+#chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    color: #d7e3ff;
 }
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+#chat-send {
+    padding: 8px 12px;
+    background: #00aaff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 
 
 
