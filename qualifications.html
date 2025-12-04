@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qualifications | Nivin Shaju</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qualifications | Nivin</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <div class="projects-container">
-    <h1 class="projects-heading">My Qualifications</h1>
-    <div class="project-list">
+  <div class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('show')">☰</div>
 
-      <!-- Degree -->
-      <div class="project-card">
-        <h2>🎓 Bachelor of Science in AI & ML</h2>
-        <p><strong>Institution:</strong> SREE SARASWATHI THYAGARAJA COLLEGE POLLACHI </p>
-        <p><strong>Branch:</strong> Artificial Intelligence and Machine Learning</p>
-        <p><strong>Percentage:</strong> 66.9%</p>
-      </div>
+  <aside class="sidebar">
+    <h2>Qualifications</h2>
+    <nav class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="projects.html">📁 Projects</a>
+      <a href="experience.html">💼 Experience</a>
+      <a href="qualifications.html" class="active">🎓 Qualifications</a>
+      <a href="certifications.html">📜 Certifications</a>
+    </nav>
+  </aside>
 
-      <!-- Higher Secondary -->
-      <div class="project-card">
-        <h2>🏫 Higher Secondary</h2>
-        <p><strong>Institution:</strong> St. Antony's Higher Secondary School Pudukkad</p>
-        <p><strong>Branch:</strong> Bio-Maths</p>
-        <p><strong>Percentage:</strong> 89.4%</p>
-      </div>
+  <main class="main">
 
-      <!-- High School -->
-      <div class="project-card">
-        <h2>🏫 High School</h2>
-        <p><strong>Institution:</strong> St. Antony's Higher Secondary School Pudukkad</p>
-        <p><strong>Branch:</strong> General</p>
-        <p><strong>Percentage:</strong> 98%</p>
-      </div>
+    <h1 class="page-title">My Qualifications</h1>
 
+    <div class="project-card">
+      <h2>🎓 BSc AI & ML</h2>
+      <p><strong>Institution:</strong> SREE SARASWATHI THYAGARAJA COLLEGE</p>
+      <p><strong>Percentage:</strong> 66.9%</p>
     </div>
 
-    <a href="index.html" class="back-btn">⬅ Back to Home</a>
-  </div>
+    <div class="project-card">
+      <h2>🏫 Higher Secondary</h2>
+      <p>Bio-Maths — 89.4%</p>
+    </div>
+
+    <div class="project-card">
+      <h2>🏫 High School</h2>
+      <p>General — 98%</p>
+    </div>
+
+  </main>
 
 </body>
 </html>
