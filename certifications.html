@@ -2,41 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Certifications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Nivin</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <div class="section-title">
-    <h1>📜 <span>Certifications</span></h1>
-    <p>Here are some certifications I've achieved:</p>
-  </div>
+  <div class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('show')">☰</div>
 
-  <div class="card">
-    <h2>🎓 Data Mining</h2>
-    <p><strong>Issued by:</strong> NPTEL Online Certification</p>
-    <p><strong>Date:</strong> March 2024</p>
-    <p> gained a strong foundation on Data Mining .</p>
-  </div>
+  <aside class="sidebar">
+    <h2>Certifications</h2>
+    <nav class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="projects.html">📁 Projects</a>
+      <a href="experience.html">💼 Experience</a>
+      <a href="qualifications.html">🎓 Qualifications</a>
+      <a href="certifications.html" class="active">📜 Certifications</a>
+    </nav>
+  </aside>
 
-  <div class="card">
-    <h2>Student Development Program on Machine Learning with Python</h2>
-    <p><strong>Issued by:</strong> E & ICT Academy, IIT Kanpur (A Joint initiative of MeitY & IIT Kanpur)</p>
-    <p><strong>Date:</strong> February 2024</p>
-    <p>Student Development Program on Machine Learning with Python from 08-02-2024 to 10-02-2024.</p>
-  </div>
+  <main class="main">
 
-  <div class="card">
-    <h2>Introducing Natural Language Processing</h2>
-    <p><strong>Issued by:</strong> Infosys </p>
-    <p><strong>Date:</strong> July 2024</p>
-    <p>Gained a strong foundation on NLP</p>
-  </div>
+    <h1 class="page-title">Certifications</h1>
 
-  <div class="button-container">
-    <a href="index.html" class="back-button">← Back to Home</a>
-  </div>
+    <div class="card">
+      <h2>🎓 Data Mining — NPTEL</h2>
+      <p><strong>Date:</strong> March 2024</p>
+      <p>Gained strong foundation in Data Mining.</p>
+    </div>
+
+    <div class="card">
+      <h2>Machine Learning with Python — IIT Kanpur</h2>
+      <p><strong>Date:</strong> Feb 2024</p>
+      <p>Three-day development program on machine learning.</p>
+    </div>
+
+    <div class="card">
+      <h2>Introducing NLP — Infosys</h2>
+      <p><strong>Date:</strong> July 2024</p>
+      <p>Strong foundation in NLP concepts.</p>
+    </div>
+
+  </main>
 
 </body>
 </html>
+
