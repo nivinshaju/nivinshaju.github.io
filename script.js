@@ -1,38 +1,38 @@
-/* ---------------- PARALLAX ---------------- */
+/* PARALLAX */
 document.addEventListener("mousemove", (e) => {
-    const x = (e.clientX - window.innerWidth / 2) / 50;
-    const y = (e.clientY - window.innerHeight / 2) / 50;
+    const x = (e.clientX - window.innerWidth / 2) / 60;
+    const y = (e.clientY - window.innerHeight / 2) / 60;
 
     document.querySelector(".layer-back").style.transform = `translate(${x}px, ${y}px)`;
     document.querySelector(".layer-mid").style.transform = `translate(${x * 2}px, ${y * 2}px)`;
     document.querySelector(".layer-front").style.transform = `translate(${x * 3}px, ${y * 3}px)`;
 });
 
-/* ---------------- GSAP ANIMATIONS ---------------- */
-gsap.from(".hero-title", { opacity: 0, y: -50, duration: 1.5 });
-gsap.from(".pfp-frame", { opacity: 0, scale: 0.7, duration: 1.5 });
+/* GSAP Animations */
+gsap.from(".hero-title", { opacity: 0, y: -30, duration: 1.2 });
+gsap.from(".pfp-frame", { opacity: 0, scale: 0.7, duration: 1.4 });
 gsap.from(".skill-bar", {
     scrollTrigger: ".skill-bar",
     opacity: 0,
     x: -50,
     duration: 1,
-    stagger: 0.2
+    stagger: 0.2,
 });
 
-/* ---------------- GLASS TILT ---------------- */
-document.querySelectorAll(".glass-tilt").forEach(panel => {
+/* Glass Tilt */
+document.querySelectorAll(".glass-tilt").forEach((panel) => {
     panel.addEventListener("mousemove", (e) => {
         const rect = panel.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        panel.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg)`;
+        panel.style.transform = `rotateX(${-y / 25}deg) rotateY(${x / 25}deg) scale(1.03)`;
     });
     panel.addEventListener("mouseleave", () => {
-        panel.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        panel.style.transform = "rotateX(0) rotateY(0) scale(1)";
     });
 });
 
-/* ---------------- AI CHATBOT ---------------- */
+/* Chatbot System */
 const chatBtn = document.getElementById("chatbot-button");
 const chatWin = document.getElementById("chatbot-window");
 const chatClose = document.getElementById("chat-close");
@@ -40,9 +40,8 @@ const chatBody = document.getElementById("chat-body");
 const chatInput = document.getElementById("chat-input");
 const chatSend = document.getElementById("chat-send");
 
-chatBtn.onclick = () => chatWin.style.display = "flex";
-chatClose.onclick = () => chatWin.style.display = "none";
-
+chatBtn.onclick = () => (chatWin.style.display = "flex");
+chatClose.onclick = () => (chatWin.style.display = "none");
 chatSend.onclick = sendMessage;
 
 function sendMessage() {
@@ -52,15 +51,16 @@ function sendMessage() {
     addMessage("You", text);
     chatInput.value = "";
 
-    // FAKE AI RESPONSE (Upgradable to real API)
+    // Fake AI response (Upgrade to API if needed)
     setTimeout(() => {
-        addMessage("AI", "I'm your assistant! I can help with portfolio info, projects, skills, and more.");
-    }, 500);
+        addMessage("AI", "Hello! I'm your portfolio assistant. Ask me anything!");
+    }, 600);
 }
 
 function addMessage(sender, msg) {
-    chatBody.innerHTML += `<p><strong>${sender}: </strong>${msg}</p>`;
+    chatBody.innerHTML += `<p><strong>${sender}:</strong> ${msg}</p>`;
     chatBody.scrollTop = chatBody.scrollHeight;
 }
+
 
 
