@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Nivin</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Nivin Shaju</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('show')">☰</div>
-
-  <aside class="sidebar">
-    <h2>Projects</h2>
-    <nav class="nav-links">
-      <a href="index.html">🏠 Home</a>
-      <a href="projects.html" class="active">📁 Projects</a>
-      <a href="experience.html">💼 Experience</a>
-      <a href="qualifications.html">🎓 Qualifications</a>
-      <a href="certifications.html">📜 Certifications</a>
+<header>
+    <h1>Projects</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
     </nav>
-  </aside>
+</header>
 
-  <main class="main">
+<section class="projects">
 
-    <h1 class="page-title">My Projects</h1>
-
-    <div class="project-card">
-      <h2>🔥 Fire Fighting Robot</h2>
-      <p>Autonomous robot that detects and extinguishes fire using sensors and a water system.</p>
+    <div class="card">
+        <h2>AI-Powered Conversational Platform</h2>
+        <p><strong>Tech:</strong> FastAPI, GPT, Perplexity API, MySQL, MongoDB</p>
+        <p>
+            Built a scalable conversational AI system with multi-context interactions, memory architecture
+            (short-, mid-, long-term), emotional-state modeling, and WebSocket-based real-time inference pipelines.
+        </p>
     </div>
 
-    <div class="project-card">
-      <h2>👁️ Eye-Controlled Mouse</h2>
-      <p>Computer control system using eye-tracking and gestures powered by Python + OpenCV.</p>
+    <div class="card">
+        <h2>Jewellery Similarity Search Engine</h2>
+        <p><strong>Tech:</strong> YOLOv8, ViT, Flask</p>
+        <p>
+            Developed a jewelry detection and similarity matching system using YOLOv8 segmentation and ViT embeddings.
+            Implemented metadata-driven search and a UI for uploading and editing images.
+        </p>
     </div>
 
-    <div class="project-card">
-      <h2>📷 Lens-Based Jewelry App</h2>
-      <p>AI search engine for finding visually similar jewelry using ConvNeXt + FAISS.</p>
+    <div class="card">
+        <h2>Eye-Tracking Mouse Control System</h2>
+        <p><strong>Tech:</strong> Python, OpenCV, dlib, Tkinter</p>
+        <p>
+            Created an accessibility-focused eye-tracking system that maps gaze direction to cursor control 
+            and blink detection to simulate mouse clicks.
+        </p>
     </div>
 
-  </main>
+    <div class="card">
+        <h2>Fire-Fighting Robot</h2>
+        <p><strong>Tech:</strong> Arduino, Flame Sensors, L298N, Ultrasonic Sensors</p>
+        <p>
+            Built an autonomous robot that detects fire using IR sensors and extinguishes it using a water pump,
+            supported by obstacle-avoidance algorithms.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2025 Nivin Shaju | Portfolio</p>
+</footer>
 
 </body>
 </html>
+
 
 
