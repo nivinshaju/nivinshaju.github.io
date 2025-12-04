@@ -2,34 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Experience | Nivin Shaju</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Nivin</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <div class="projects-container">
-    <h1 class="projects-heading">My Experience</h1>
+  <div class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('show')">☰</div>
 
-    <div class="project-list">
-      <div class="project-card">
-        <h2>Intern as AI Developer at Twenty4 Jewellery Industries Pvt Ltd</h2>
-        <p><strong>Duration:</strong> March 17 – June 17</p>
-        <p>
-          Worked as an AI Developer building a smart jewelry similarity search engine using deep learning, Google Drive integration, and Flutter. My contributions included:
-        </p>
-        <ul style="padding-left: 20px; line-height: 1.7; color: #ccc;">
-          <li>🔹 Developed a similarity search model using ConvNeXt + FAISS</li>
-          <li>🔹 Integrated and trained a YOLOv8l for real-time jewelry detection</li>
-          <li>🔹 Connected 10 manufacturer Drive folders using Google Drive API</li>
-          <li>🔹 Built a Flutter front-end to capture/search jewelry images</li>
-          <li>🔹 Automated feature indexing for new uploads</li>
-        </ul>
-      </div>
+  <aside class="sidebar">
+    <h2>Experience</h2>
+    <nav class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="projects.html">📁 Projects</a>
+      <a href="experience.html" class="active">💼 Experience</a>
+      <a href="qualifications.html">🎓 Qualifications</a>
+      <a href="certifications.html">📜 Certifications</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <h1 class="page-title">My Experience</h1>
+
+    <div class="experience-card">
+      <h2>AI Developer Intern — Twenty4 Jewellery Industries</h2>
+      <p><strong>Duration:</strong> March 17 – June 17</p>
+      <ul style="margin-top:10px; line-height:1.7; color:#ccc;">
+        <li>🔹 Built ConvNeXt + FAISS similarity search engine</li>
+        <li>🔹 Trained YOLOv8l for jewelry detection</li>
+        <li>🔹 Integrated 10 manufacturer folders via Google Drive API</li>
+        <li>🔹 Developed Flutter UI for jewelry search</li>
+        <li>🔹 Automated new image indexing</li>
+      </ul>
     </div>
 
-    <a href="index.html" class="back-btn">⬅ Back to Home</a>
-  </div>
+  </main>
 
 </body>
 </html>
