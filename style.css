@@ -5,11 +5,20 @@
   box-sizing: border-box;
 }
 
+/* ===== Body ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #000;
+  background: linear-gradient(135deg, #000, #0a0a0a, #111);
   color: #fff;
   animation: fadeIn 0.8s ease forwards;
+  line-height: 1.6;
+  padding: 30px 15px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== Container ===== */
@@ -21,17 +30,25 @@ body {
   padding: 30px;
 }
 
+/* ===== Glassmorphism Card ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  animation: fadeIn 1s ease-in-out;
+}
+
 /* ===== Intro Section ===== */
 .intro {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  background: #111;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
+/* Left Text Panel */
 .text {
   flex: 1;
   padding: 50px;
@@ -39,30 +56,31 @@ body {
 
 .text h2 {
   font-size: 14px;
-  color: #888;
+  color: #ccc;
+  letter-spacing: 3px;
   margin-bottom: 12px;
+  opacity: 0.8;
 }
 
 .text h1 {
   font-size: 36px;
   margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 .text p {
   font-size: 16px;
-  line-height: 1.6;
   color: #aaa;
   margin-bottom: 30px;
 }
 
 .highlight {
-  color: #fff;
+  color: #00eaff;
   font-weight: bold;
 }
 
 .sub-highlight {
   color: #ccc;
-  font-weight: normal;
 }
 
 /* ===== Buttons ===== */
@@ -71,46 +89,46 @@ body {
   gap: 15px;
   margin-bottom: 15px;
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
 
 .btn {
   text-decoration: none;
   padding: 12px 24px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
-  font-weight: bold;
-  border-radius: 6px;
-  border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
-/* ===== Image Section ===== */
+/* ===== Right Image Section ===== */
 .image {
   flex: 1.2;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
-  overflow: hidden;
+  background: transparent;
 }
 
+.glass-image img,
 .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
 }
 
 /* ===== Skills Section ===== */
 .skills-section {
   padding: 30px 0 0;
-  text-align: left;
 }
 
 .skills-section h2 {
@@ -121,7 +139,6 @@ body {
 .skills-list {
   list-style: none;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 .skills-list li {
@@ -150,7 +167,17 @@ body {
   }
 }
 
-/* ===== Projects Page ===== */
+/* ===== Connect Options ===== */
+.connect-options {
+  display: none;
+  padding: 20px;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------- */
+/*                    PROJECTS PAGE                        */
+/* ------------------------------------------------------- */
 .projects-container {
   padding: 60px 30px;
   text-align: center;
@@ -159,8 +186,6 @@ body {
 .projects-heading {
   font-size: 32px;
   margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .project-list {
@@ -168,26 +193,24 @@ body {
   flex-direction: column;
   gap: 30px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .project-card {
-  background: #111;
+  background: rgba(17, 17, 17, 0.8);
   border: 1px solid #333;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 25px;
-  text-align: left;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   background-color: #1a1a1a;
 }
 
 .project-card h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .project-card h2 a {
@@ -195,68 +218,32 @@ body {
   text-decoration: none;
 }
 
-.project-card h2 a:hover {
-  color: #ccc;
-  text-decoration: underline;
-}
-
 .project-card p {
   color: #bbb;
-  font-size: 16px;
-  line-height: 1.6;
 }
 
-/* ===== Experience Page ===== */
+/* ------------------------------------------------------- */
+/*                    EXPERIENCE PAGE                      */
+/* ------------------------------------------------------- */
 .experience-container {
   padding: 60px 30px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
 }
 
-.experience-heading {
-  font-size: 32px;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-}
-
 .experience-card {
-  background: #111;
+  background: rgba(17, 17, 17, 0.8);
   border: 1px solid #333;
   border-radius: 12px;
-  padding: 25px 30px;
+  padding: 25px;
   margin-bottom: 30px;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
-.experience-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.experience-card p {
-  font-size: 16px;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-/* ===== Base Reset & Font ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #000; /* True black background */
-  color: #fff;
-  line-height: 1.6;
-  padding: 30px 15px;
-}
-
-/* ===== Section Title ===== */
+/* ------------------------------------------------------- */
+/*                   CERTIFICATIONS PAGE                   */
+/* ------------------------------------------------------- */
 .section-title {
   text-align: center;
   margin-bottom: 50px;
@@ -264,204 +251,82 @@ body {
 
 .section-title h1 {
   font-size: 36px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.section-title span {
-  color: #fff;
 }
 
 .section-title p {
-  font-size: 15px;
   color: #bbb;
 }
 
-/* ===== Certification Cards ===== */
 .card {
-  background-color: #111;
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid #444;
-  padding: 24px 28px;
+  padding: 24px;
   margin: 20px auto;
   border-radius: 14px;
   max-width: 750px;
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 16px rgba(255,255,255,0.08);
+  transition: 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12);
 }
 
-.card h2 {
-  color: #0ff;
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.card p {
-  font-size: 15px;
-  color: #ddd;
-  margin: 6px 0;
-}
-
-/* ===== Button Styling ===== */
-.button-container {
-  text-align: center;
-  margin-top: 60px;
-}
-
+/* ===== Back Button ===== */
 .back-button {
-  display: inline-block;
   padding: 12px 26px;
   border-radius: 6px;
-  font-weight: bold;
   border: 2px solid #fff;
-  color: #fff;
   text-decoration: none;
+  color: white;
   background: transparent;
-  transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  background-color: #fff;
-  color: #000;
+  background: white;
+  color: black;
 }
 
-
-/* ===== Chatbot Container ===== */
+/* ------------------------------------------------------- */
+/*                          CHATBOT                        */
+/* ------------------------------------------------------- */
 .chatbot {
   position: fixed;
-  bottom: 100px;
+  bottom: 95px;
   right: 20px;
   width: 320px;
-  background: rgba(17, 17, 17, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(15,15,15,0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
   display: none;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  z-index: 999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
-.chatbot.show {
-  display: block;
-  transform: translateY(0);
-}
-
-.chat-toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: transparent;
-  border: 2px solid #1e90ff;
-  border-radius: 70%;
-  width: 55px;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s;
-}
-
-.chat-toggle-btn:hover {
-  transform: scale(1.1);
-}
-.chat-toggle-btn::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 12px;
-  height: 12px;
-  background: #39ff14; /* Fluorescent green */
-  border-radius: 50%;
-  box-shadow: 0 0 6px #39ff14;
-  z-index: 1001;
-}
-
-.chat-toggle-btn::after {
-  content: "Niaa🧚🏻‍♀️";
-  position: absolute;
-  bottom: 70px;
-  background: #000;
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  white-space: nowrap;
-}
-
-.chat-toggle-btn:hover::after {
-  opacity: 1;
-}
-
-.desktop-icon {
-  font-size: 40px;
-}
-
-.mobile-icon {
-  display: none;
-}
-
-.mobile-icon img {
-  width: 30px;
-  height: 45px;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-/* ===== Chat Area ===== */
 .chat-header {
-  background: #222;
   padding: 12px;
-  font-weight: bold;
+  background: rgba(255,255,255,0.07);
   text-align: center;
-  border-bottom: 1px solid #333;
+  font-weight: bold;
 }
 
 .chat-content {
-  max-height: 280px;
+  max-height: 260px;
   overflow-y: auto;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: #666 #222;
-}
-
-.chat-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-content::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 4px;
 }
 
 .chat-content .bot,
 .chat-content .user {
   padding: 10px 14px;
   border-radius: 12px;
-  font-size: 14px;
-  max-width: 85%;
-  line-height: 1.4;
-  word-wrap: break-word;
 }
 
 .chat-content .bot {
-  background: #2a2a2a;
-  align-self: flex-start;
+  background: rgba(255,255,255,0.12);
 }
 
 .chat-content .user {
@@ -470,152 +335,55 @@ body {
   align-self: flex-end;
 }
 
-/* ===== Chat Input ===== */
 .chat-input-area {
   display: flex;
-  border-top: 1px solid #333;
-  background: #000;
+  background: rgba(0,0,0,0.5);
 }
 
 .chat-input-area input {
   flex: 1;
   padding: 12px;
-  border: none;
-  background: #000;
+  background: transparent;
   color: white;
-  font-size: 14px;
-  outline: none;
+  border: none;
 }
 
 .send-btn {
   background: #1e90ff;
-  color: white;
   border: none;
   padding: 10px 14px;
-  cursor: pointer;
-  font-size: 16px;
-  border-left: 1px solid #333;
 }
 
-/* ===== Responsive Design ===== */
+/* ===== Chatbot Floating Button ===== */
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid #1e90ff;
+  background: rgba(0,0,0,0.4);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------------------------------------- */
+/*                      RESPONSIVE RULES                   */
+/* ------------------------------------------------------- */
 @media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  .intro {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .text {
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .text h1 {
-    font-size: 28px;
-  }
-
-  .text h2 {
-    font-size: 12px;
-  }
-
-  .text p,
-  .skills-list li,
-  .project-card p,
-  .experience-card p {
-    font-size: 14px;
-  }
-
-  .project-card h2,
-  .experience-card h2 {
-    font-size: 20px;
-  }
-
-  .skills-section,
-  .skills-list {
-    text-align: center;
-  }
-
-  .image {
-    padding: 20px;
-  }
-
-  .image img {
-    width: 100%;
-    height: auto;
-  }
-
-  .chatbot {
-    width: 90%;
-    left: 5%;
-    bottom: 90px;
-  }
-
-  .chat-content {
-    max-height: 200px;
-    gap: 6px;
-  }
-
-  .chat-content .bot,
-  .chat-content .user {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  .chat-input-area input {
-    font-size: 13px;
-  }
-
-  .desktop-icon {
-    display: none;
-  }
-
-  .mobile-icon {
-    display: inline-block;
-  }
+  .container { padding: 20px; }
+  .intro { flex-direction: column; }
+  .text { text-align: center; padding: 30px; }
+  .glass-image img { width: 80%; }
+  .chatbot { width: 90%; left: 5%; bottom: 90px; }
 }
 
 @media (max-width: 480px) {
-  .text h1 {
-    font-size: 24px;
-  }
-
-  .btn {
-    padding: 10px 18px;
-    font-size: 14px;
-  }
-
-  .project-card h2,
-  .experience-card h2 {
-    font-size: 18px;
-  }
-
+  .text h1 { font-size: 24px; }
+  .btn { padding: 10px 18px; font-size: 14px; }
   .project-card p,
-  .experience-card p {
-    font-size: 13px;
-  }
-
-  .back-btn,
-  .back-button {
-    font-size: 13px;
-    padding: 8px 16px;
-  }
-
-  .section-title h1 {
-    font-size: 22px;
-  }
-
-  .section-title p {
-    font-size: 12px;
-  }
-
-  .card h2 {
-    font-size: 16px;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
+  .experience-card p { font-size: 13px; }
 }
