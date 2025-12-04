@@ -1,9 +1,7 @@
-/* Make sure parallax layers don’t block hover */
-.parallax {
-    pointer-events: none;
-}
+/* Disable hover-block from background */
+.bg-layer { pointer-events: none; }
 
-/* Page Title Section */
+/* Header */
 .projects-header {
     text-align: center;
     padding: 80px 20px 40px;
@@ -12,7 +10,7 @@
 .projects-title {
     font-size: 3rem;
     font-weight: 800;
-    text-shadow: 0 0 25px #00aaff;
+    text-shadow: 0 0 25px #00ccff;
 }
 
 .back-btn {
@@ -20,16 +18,16 @@
     display: inline-block;
 }
 
-/* Project Grid */
+/* Grid Layout */
 .projects-section {
     padding: 40px 10%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 35px;
-    perspective: 1200px; /* Enables 3D tilt depth */
+    perspective: 1200px;
 }
 
-/* Project Cards */
+/* Cards */
 .project-card {
     padding: 25px;
     background: rgba(255,255,255,0.06);
@@ -37,32 +35,28 @@
     border: 1px solid #00aaff44;
     box-shadow: 0 0 25px rgba(0,150,255,0.15);
     backdrop-filter: blur(14px);
-    transition: 0.25s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
     cursor: pointer;
     transform-style: preserve-3d;
 }
 
-/* Neon hover glow */
 .project-card:hover {
-    box-shadow: 
+    box-shadow:
         0 0 35px #00aaff,
-        0 0 70px #0066ff;
+        0 0 70px #0077ff;
 }
 
+/* Card Typography */
 .project-card h2 {
-    margin: 0 0 10px;
-    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .tech {
-    color: #00cfff;
+    color: #00d1ff;
     font-size: 0.95rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-/* Smooth 3D reset */
-.glass-tilt {
-    transform-style: preserve-3d;
-}
 
 
