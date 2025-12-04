@@ -1,6 +1,7 @@
+/* GLOBAL */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background: #02040a;
     color: #d7e3ff;
     overflow-x: hidden;
@@ -20,13 +21,12 @@ body {
 }
 
 .layer-mid {
-    background: url('https://i.ibb.co/2kY9cCc/grid.png');
+    background: url("https://i.ibb.co/2kY9cCc/grid.png");
     opacity: 0.08;
-    transform: scale(1.2);
 }
 
 .layer-front {
-    background: radial-gradient(circle, rgba(0,150,255,0.15), transparent 80%);
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.15), transparent 80%);
     mix-blend-mode: screen;
 }
 
@@ -45,7 +45,6 @@ body {
     text-align: center;
 }
 
-/* Futuristic Profile Frame */
 .pfp-frame {
     position: relative;
     width: 230px;
@@ -70,21 +69,29 @@ body {
     animation: spin 5s linear infinite;
 }
 
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-/* BUTTON */
-.btn-neon {
-    background: #00aaff;
-    padding: 12px 25px;
-    border-radius: 10px;
-    color: black;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 12px #00ccff;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* SKILL BARS */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-shadow: 0 0 15px #00bfff, 0 0 25px #0066ff;
+}
+
+.btn-neon {
+    background: #00aaff;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 0 12px #00ccff;
+    text-decoration: none;
+}
+
+/* SKILLS */
 .skill-bar {
     margin: 25px 0;
 }
@@ -102,20 +109,21 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #00eaff, #0077ff);
     box-shadow: 0 0 20px #00aaff;
-    animation: fillAnim 2s ease forwards;
+    animation: fillAnim 2s forwards;
 }
 
 @keyframes fillAnim {
-    from { width: 0; }
+    from {
+        width: 0;
+    }
 }
 
 /* GLASS PANELS */
 .glass-panel {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid #00aaff55;
     padding: 20px;
     border-radius: 12px;
-    margin: 20px 0;
     backdrop-filter: blur(12px);
     transition: 0.3s;
 }
@@ -159,7 +167,6 @@ body {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
-    color: #d7e3ff;
 }
 
 .chat-input-area {
@@ -175,13 +182,19 @@ body {
     border: none;
 }
 
-#chat-send {
-    padding: 8px 12px;
-    background: #00aaff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+/* 3D GLASS TILT */
+.glass-tilt {
+    transition: 0.2s ease-out;
 }
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px;
+    opacity: 0.7;
+    margin-top: 50px;
+}
+
 
 
 
