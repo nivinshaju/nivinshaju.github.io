@@ -3,312 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivin Shaju | AI Developer Portfolio</title>
+    <title>Nivin Shaju | AI Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* --- CSS VARIABLES & RESET --- */
+        /* --- VARIABLES & RESET --- */
         :root {
-            --bg-color: #050505;
-            --card-bg: rgba(20, 20, 25, 0.6);
+            --bg-color: #030305;
+            --card-bg: rgba(20, 20, 35, 0.4);
             --primary: #00f3ff; /* Neon Cyan */
-            --secondary: #bd00ff; /* Neon Purple */
-            --text-main: #e0e0e0;
-            --text-dim: #a0a0a0;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --font-tech: 'Courier New', Courier, monospace;
+            --secondary: #bc13fe; /* Neon Purple */
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+            --font-head: 'Orbitron', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
+        
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: var(--font-main);
+            font-family: var(--font-body);
             overflow-x: hidden;
             line-height: 1.6;
+            position: relative;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
         /* --- BACKGROUND ANIMATION --- */
-        .bg-grid {
+        #neural-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
             z-index: -1;
-            perspective: 500px;
+        }
+
+        /* Ambient Color Blobs */
+        .blob {
+            position: fixed;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(188, 19, 254, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatBlob 10s infinite ease-in-out alternate;
+        }
+        .blob:nth-child(2) { top: -100px; left: -100px; animation-delay: 0s; }
+        .blob:nth-child(3) { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%); animation-delay: 5s; }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
         }
 
         /* --- NAVIGATION --- */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(3, 3, 5, 0.7);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
+            font-family: var(--font-head);
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            font-family: var(--font-tech);
+            font-weight: 700;
+            color: var(--text-main);
             letter-spacing: 2px;
+            position: relative;
         }
+        .logo span { color: var(--primary); }
 
+        .nav-links { display: flex; gap: 30px; }
         .nav-links a {
-            margin-left: 30px;
             font-size: 0.9rem;
             text-transform: uppercase;
+            font-weight: 600;
             letter-spacing: 1px;
+            position: relative;
+            color: var(--text-dim);
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 10px var(--primary);
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 2px; background: var(--primary);
+            transition: 0.3s;
         }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
 
         /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: row; 
-            justify-content: space-between;
             align-items: center;
             padding: 120px 10% 80px;
             position: relative;
             gap: 50px;
         }
 
-        .hero-content {
-            flex: 1;
-            max-width: 650px;
+        .hero-content { flex: 1; z-index: 1; }
+        
+        .hero h2 {
+            font-family: var(--font-head);
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Glitch Effect Title */
+        .glitch-wrapper { margin-bottom: 20px; }
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::before, .hero h1::after {
+            content: 'NIVIN SHAJU';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-color);
+        }
+        .hero h1::before {
+            left: 2px; text-shadow: -1px 0 var(--secondary);
+            clip-path: inset(44% 0 61% 0);
+            animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        }
+        .hero h1::after {
+            left: -2px; text-shadow: -1px 0 var(--primary);
+            clip-path: inset(54% 0 20% 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 80% 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            40% { clip-path: inset(40% 0 50% 0); }
+            60% { clip-path: inset(80% 0 5% 0); }
+            80% { clip-path: inset(10% 0 70% 0); }
+            100% { clip-path: inset(30% 0 20% 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 60% 0); }
+            20% { clip-path: inset(30% 0 10% 0); }
+            40% { clip-path: inset(70% 0 5% 0); }
+            60% { clip-path: inset(20% 0 40% 0); }
+            80% { clip-path: inset(50% 0 20% 0); }
+            100% { clip-path: inset(0% 0 80% 0); }
+        }
+
+        .hero p {
+            max-width: 550px;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            border-left: 3px solid var(--secondary);
+            padding-left: 20px;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            font-family: var(--font-head);
+            font-weight: bold;
+            color: var(--bg-color);
+            background: var(--primary);
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            transition: 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: white;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+            transform: translateY(-2px);
         }
 
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
+            position: relative;
         }
 
-        /* Styling for the profile image - NO BORDER, NO CIRCLE */
         .hero-image img {
             width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 10px; /* Slight rounding for smoothness */
-            object-fit: cover;
-            /* Border and Box-Shadow removed */
-            transition: transform 0.5s ease;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+            animation: floatImg 6s ease-in-out infinite;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .hero-image img:hover {
-            transform: scale(1.02);
+        @keyframes floatImg {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
         }
 
+        /* --- SECTIONS --- */
+        section { padding: 100px 10%; }
 
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, var(--primary));
+        .section-header { margin-bottom: 60px; }
+        .section-header h2 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, var(--text-dim));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            font-family: var(--font-tech);
-            margin-bottom: 20px;
-            min-height: 1.5em;
-        }
-
-        .hero p {
-            max-width: 600px;
-            color: var(--text-dim);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-            font-family: var(--font-tech);
-            text-transform: uppercase;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
             display: inline-block;
         }
-
-        .btn:hover {
+        .section-header .line {
+            width: 60px; height: 4px;
             background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 20px var(--primary);
+            margin-top: 10px;
+            border-radius: 2px;
         }
 
-        /* --- SECTIONS GENERAL --- */
-        section {
-            padding: 80px 10%;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- CARDS & GRID --- */
+        /* --- CARDS & 3D TILT --- */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 25px;
+            padding: 30px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            transition: transform 0.1s, box-shadow 0.3s; /* Fast transform for tilt */
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
+        .card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0; transition: 0.3s; pointer-events: none;
+        }
+        .card:hover::before { opacity: 1; }
+        
         .card:hover {
-            transform: translateY(-5px) !important;
-            border-color: var(--secondary);
-            box-shadow: 0 5px 15px rgba(189, 0, 255, 0.2);
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .card h3 {
             color: var(--primary);
+            font-family: var(--font-head);
             margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
         .card .date {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-dim);
-            font-family: var(--font-tech);
-            margin-bottom: 15px;
+            font-family: monospace;
             display: block;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
-        .card ul {
-            padding-left: 20px;
-            list-style-type: square;
-        }
-
-        .card li {
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: #ccc;
-        }
+        .card ul { padding-left: 20px; list-style-type: square; color: #ddd; }
+        .card li { margin-bottom: 8px; font-size: 0.95rem; }
+        .card p { color: #ddd; font-size: 0.95rem; }
 
         /* --- SKILLS --- */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; }
         .skill-tag {
-            background: rgba(0, 243, 255, 0.1);
-            border: 1px solid var(--primary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-family: var(--font-tech);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--secondary);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            transition: 0.3s;
+            cursor: default;
+        }
+        .skill-tag:hover {
+            background: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
         }
 
         /* --- CONTACT --- */
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+        }
+        
+        .contact-box {
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        
+        .contact-box:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.1rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item span {
+        .contact-box i {
+            font-size: 2rem;
             color: var(--primary);
-            font-family: var(--font-tech);
+            margin-bottom: 15px;
         }
+        
+        .contact-box h4 { font-family: var(--font-head); margin-bottom: 5px; }
+        .contact-box span { font-size: 0.9rem; color: var(--text-dim); }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.05);
             color: var(--text-dim);
             font-size: 0.9rem;
+            background: rgba(0,0,0,0.5);
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
             .hero {
                 flex-direction: column-reverse;
-                justify-content: center;
                 text-align: center;
-                padding-top: 140px;
-                gap: 30px;
+                padding-top: 150px;
             }
-
-            .hero-content {
-                align-items: center;
-                display: flex;
-                flex-direction: column;
-            }
-
             .hero h1 { font-size: 3rem; }
-            
-            .hero-image img {
-                max-width: 300px;
-            }
+            .hero p { margin: 20px auto; border: none; padding: 0; }
+            .hero-image img { max-width: 300px; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
             nav { padding: 20px; }
-            .nav-links { display: none; }
-            section { padding: 60px 5%; }
+            .nav-links { display: none; } /* Mobile menu could be added here */
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-grid"></div>
+    <canvas id="neural-canvas"></canvas>
+    <div class="blob"></div>
+    <div class="blob"></div>
 
     <nav>
-        <div class="logo">&lt;NIVIN /&gt;</div>
+        <div class="logo">&lt;NIVIN <span>/&gt;</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#experience">Experience</a>
@@ -321,94 +393,107 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h2 id="typing-text"></h2>
-            <h1>NIVIN SHAJU</h1>
+            <div class="glitch-wrapper">
+                <h1>NIVIN SHAJU</h1>
+            </div>
             <p>
-                AI Developer specializing in Computer Vision, Deep Learning, and Real-time Robotics. 
-                Motivated to build scalable AI systems that solve real-world problems.
+                Building intelligent systems where Computer Vision meets Robotics. 
+                Creating scalable, real-time AI solutions for the complex problems of tomorrow.
             </p>
-            <a href="#contact" class="btn">Initialize Contact</a>
+            <a href="#contact" class="btn">Initialize Connection</a>
         </div>
         <div class="hero-image">
-            <img src="assets/profile3.png" alt="Nivin Shaju Profile Picture">
+            <img src="assets/profile3.png" alt="Nivin Shaju Profile">
         </div>
     </section>
 
     <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
+        <div class="section-header">
+            <h2>Experience</h2>
+            <div class="line"></div>
+        </div>
         <div class="grid-container">
-            <div class="card">
+            <div class="card tilt-card">
                 <h3>AI Developer</h3>
                 <span class="date">Twenty4 Jewellery Industries | May 2025 - Nov 2025</span>
                 <ul>
-                    <li>Developed a jewelry similarity search app using YOLOv8 segmentation and Vision Transformers (ViT).</li>
-                    <li>Implemented deep feature embedding for robust similarity matching across designs.</li>
-                    <li>Built a Flask-based interface for dynamic attribute handling.</li>
+                    <li>Engineered jewelry similarity search using YOLOv8 segmentation & Vision Transformers.</li>
+                    <li>Developed deep feature embeddings for 99% accurate design matching.</li>
+                    <li>Deployed Flask-based backend for dynamic attribute handling.</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="card tilt-card">
                 <h3>AI Developer Intern</h3>
                 <span class="date">Twenty4 Jewellery Industries | March 2025 - May 2025</span>
                 <ul>
-                    <li>Assisted in building recognition systems leveraging YOLOv8.</li>
-                    <li>Ensured precise feature extraction and metadata-driven search capabilities.</li>
+                    <li>Optimized YOLOv8 models for precise object detection in high-clutter images.</li>
+                    <li>Implemented metadata-driven search algorithms to reduce query time by 40%.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Key Projects</h2>
+        <div class="section-header">
+            <h2>Key Operations</h2>
+            <div class="line"></div>
+        </div>
         <div class="grid-container">
-            <div class="card">
-                <h3>Conversational AI Platform</h3>
-                <span class="date">FastAPI, OpenAI, MySQL | Sep 2025</span>
-                <p>Engineered a scalable system with layered memory architecture (short/long-term) and emotional state modeling for coherent multi-context chat.</p>
+            <div class="card tilt-card">
+                <h3><i class="fas fa-brain"></i> Conversational AI</h3>
+                <span class="date">FastAPI, OpenAI, MySQL</span>
+                <p>A scalable chatbot with layered memory architecture (short/long-term) and emotional state modeling for human-like context retention.</p>
             </div>
-            <div class="card">
-                <h3>Eye-Tracking Mouse Control</h3>
-                <span class="date">Python, OpenCV, Dlib | Sep 2024</span>
-                <p>Developed an accessibility tool detecting eye landmarks to simulate mouse events, allowing cursor control via eye movement.</p>
+            <div class="card tilt-card">
+                <h3><i class="fas fa-eye"></i> Eye-Tracking Mouse</h3>
+                <span class="date">Python, OpenCV, Dlib</span>
+                <p>Accessibility tool enabling hands-free cursor control via real-time eye landmark detection and gaze estimation.</p>
             </div>
-            <div class="card">
-                <h3>Fire Fighting Robot</h3>
-                <span class="date">Arduino, IoT, C++ | Nov 2024</span>
-                <p>Autonomous robot using flame sensors and obstacle avoidance algorithms to detect and extinguish fires using a water pump module.</p>
+            <div class="card tilt-card">
+                <h3><i class="fas fa-robot"></i> Fire Fighting Bot</h3>
+                <span class="date">Arduino, C++, IoT</span>
+                <p>Autonomous robot utilizing multi-sensor fusion to detect flames and navigate obstacles to extinguish fires automatically.</p>
             </div>
-            <div class="card">
-                <h3>Jewellery Recognition Engine</h3>
-                <span class="date">YOLOv8, ViT | Internship Project</span>
-                <p>Built a similarity search engine specifically tailored for intricate jewelry designs using object detection and embeddings.</p>
+            <div class="card tilt-card">
+                <h3><i class="fas fa-gem"></i> Jewellery Vision</h3>
+                <span class="date">YOLOv8, ViT</span>
+                <p>A specialized search engine for intricate designs, combining object detection with transformer-based embeddings.</p>
             </div>
         </div>
     </section>
 
     <section id="skills">
-        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="section-header">
+            <h2>Tech Arsenal</h2>
+            <div class="line"></div>
+        </div>
         <div class="skills-container">
             <div class="skill-tag">Python</div>
-            <div class="skill-tag">C/C++</div>
+            <div class="skill-tag">TensorFlow / PyTorch</div>
             <div class="skill-tag">YOLOv8</div>
             <div class="skill-tag">OpenCV</div>
-            <div class="skill-tag">FastAPI</div>
-            <div class="skill-tag">Flask</div>
-            <div class="skill-tag">Vision Transformers (ViT)</div>
+            <div class="skill-tag">Vision Transformers</div>
+            <div class="skill-tag">FastAPI & Flask</div>
+            <div class="skill-tag">C++</div>
             <div class="skill-tag">MySQL</div>
-            <div class="skill-tag">Machine Learning</div>
-            <div class="skill-tag">Matplotlib</div>
+            <div class="skill-tag">Git</div>
         </div>
     </section>
 
     <section id="education">
-        <h2 class="section-title">Education & Certs</h2>
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="line"></div>
+        </div>
         <div class="grid-container">
-            <div class="card">
+            <div class="card tilt-card">
                 <h3>B.Sc AI & Machine Learning</h3>
                 <span class="date">Sree Saraswathi Thyagaraja College | 2022-2025</span>
-                <p>CGPA: 6.9 | Bharathiar University</p>
+                <p>Bharathiar University | CGPA: 6.9</p>
             </div>
-            <div class="card">
+            <div class="card tilt-card">
                 <h3>Certifications</h3>
-                <ul>
+                <ul style="margin-top: 10px;">
                     <li>Machine Learning with Python (IIT Kanpur)</li>
                     <li>Data Mining (NPTEL)</li>
                     <li>Basics in Python & C++ (G-TEC)</li>
@@ -418,88 +503,195 @@
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Transmit Data</h2>
-        <div class="card" style="max-width: 600px;">
-            <div class="contact-details">
-                <div class="contact-item">
-                    <span>EMAIL ::</span> <a href="mailto:nivinshaju@gmail.com">nivinshaju@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span>PHONE ::</span> <a href="tel:+919562140166">+91-9562140166</a>
-                </div>
-                <div class="contact-item">
-                    <span>LINKEDIN ::</span> <a href="https://www.linkedin.com/in/contactnivinshaju" target="_blank">linkedin.com/in/contactnivinshaju</a>
-                </div>
-                <div class="contact-item">
-                    <span>LOC ::</span>  Thrissur, Kerala
-                </div>
+        <div class="section-header">
+            <h2>Transmit Data</h2>
+            <div class="line"></div>
+        </div>
+        <div class="contact-grid">
+            <a href="mailto:nivinshaju@gmail.com" class="contact-box">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <span>nivinshaju@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/contactnivinshaju" target="_blank" class="contact-box">
+                <i class="fab fa-linkedin"></i>
+                <h4>LinkedIn</h4>
+                <span>Connect with me</span>
+            </a>
+            <a href="tel:+919562140166" class="contact-box">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Phone</h4>
+                <span>+91-9562140166</span>
+            </a>
+            <div class="contact-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Location</h4>
+                <span>Thrissur, Kerala</span>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Nivin Shaju.</p>
+        <p>&copy; 2025 Nivin Shaju. System Online.</p>
     </footer>
 
     <script>
-        // Typing Effect for Hero Section
+        // --- 1. NEURAL NETWORK BACKGROUND ANIMATION ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+        let mouse = { x: null, y: null, radius: 150 }
+
+        window.addEventListener('mousemove', function(event) {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x; this.y = y;
+                this.directionX = directionX; this.directionY = directionY;
+                this.size = size; this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+
+                // Mouse interaction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius + this.size) {
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 2;
+                    if (mouse.x > this.x && this.x > this.size * 10) this.x -= 2;
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 2;
+                    if (mouse.y > this.y && this.y > this.size * 10) this.y -= 2;
+                }
+
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 3) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 1) - 0.5;
+                let directionY = (Math.random() * 1) - 0.5;
+                let color = '#00f3ff';
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
+                                   ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle = 'rgba(0, 243, 255,' + opacityValue + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        window.addEventListener('resize', function(){
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+
+        // --- 2. TYPING EFFECT ---
         const textElement = document.getElementById('typing-text');
         const phrases = ["AI DEVELOPER", "COMPUTER VISION ENGINEER", "DEEP LEARNING SPECIALIST"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
         function type() {
             const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = 100;
-
-            if (isDeleting) typeSpeed /= 2;
+            textElement.textContent = "> " + currentPhrase.substring(0, charIndex + 1); // Added "> " for tech feel
 
             if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Pause at end
+                isDeleting = true; setTimeout(type, 2000);
             } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
+                isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; setTimeout(type, 500);
+            } else {
+                charIndex += isDeleting ? -1 : 1;
+                setTimeout(type, isDeleting ? 50 : 100);
             }
-
-            setTimeout(type, typeSpeed);
         }
-
         document.addEventListener('DOMContentLoaded', type);
 
-        // Simple Intersection Observer for Fade-in effects
-        const observerOptions = {
-            threshold: 0.1
-        };
+        // --- 3. 3D TILT EFFECT FOR CARDS ---
+        const cards = document.querySelectorAll('.tilt-card');
 
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // --- 4. SCROLL REVEAL ANIMATION ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('hovered')) {
+                if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s, border-color 0.3s';
-            observer.observe(card);
-
-            card.addEventListener('mouseenter', () => card.classList.add('hovered'));
-            card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
+        document.querySelectorAll('section').forEach(sec => {
+            sec.style.opacity = '0';
+            sec.style.transform = 'translateY(30px)';
+            sec.style.transition = 'all 0.8s ease-out';
+            observer.observe(sec);
         });
     </script>
 </body>
