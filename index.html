@@ -3,110 +3,513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivin Shaju | AI Developer</title>
+    <title>Nivin Shaju | AI Developer Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(20, 20, 25, 0.6);
+            --primary: #00f3ff; /* Neon Cyan */
+            --secondary: #bd00ff; /* Neon Purple */
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-tech: 'Courier New', Courier, monospace;
+        }
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- BACKGROUND ANIMATION --- */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            perspective: 500px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            font-family: var(--font-tech);
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh; /* Changed to min-height */
+            display: flex;
+            /* Changed direction to row for side-by-side layout on desktop */
+            flex-direction: row; 
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 10% 80px; /* Increased top padding for nav bar clearance */
+            position: relative;
+            gap: 50px; /* Gap between text and image */
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for the profile image */
+        .hero-image img {
+            width: 100%;
+            max-width: 450px; /* Maximum size on desktop */
+            height: auto;
+            border-radius: 50%; /* Makes it circular */
+            aspect-ratio: 1 / 1; /* Ensures it stays a perfect circle */
+            object-fit: cover;
+            border: 3px solid rgba(0, 243, 255, 0.5);
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.2); /* Neon glow effect */
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(0, 243, 255, 0.4);
+        }
+
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-family: var(--font-tech);
+            margin-bottom: 20px;
+            min-height: 1.5em; /* Prevents jump when typing starts */
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            font-family: var(--font-tech);
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- CARDS & GRID --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) !important; /* Override JS fade-in transform */
+            border-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(189, 0, 255, 0.2);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card .date {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-family: var(--font-tech);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            list-style-type: square;
+        }
+
+        .card li {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-family: var(--font-tech);
+        }
+
+        /* --- CONTACT --- */
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item span {
+            color: var(--primary);
+            font-family: var(--font-tech);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero {
+                /* Stack vertically on smaller screens, image on top */
+                flex-direction: column-reverse;
+                justify-content: center;
+                text-align: center;
+                padding-top: 140px;
+                gap: 30px;
+            }
+
+            .hero-content {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero h1 { font-size: 3rem; }
+            
+            .hero-image img {
+                max-width: 300px; /* Smaller image on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            section { padding: 60px 5%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- Parallax Background -->
-<div class="bg-layer layer1"></div>
-<div class="bg-layer layer2"></div>
-<div class="bg-layer layer3"></div>
+    <div class="bg-grid"></div>
 
-<!-- Chatbot Button -->
-<div id="chatbot-btn">🤖</div>
-
-<!-- Chatbot Window -->
-<div id="chatbot-window">
-    <header>
-        <h3>AI Assistant</h3>
-        <span id="chat-close">✖</span>
-    </header>
-
-    <div id="chat-body"></div>
-
-    <div class="chat-input">
-        <input type="text" id="chat-input" placeholder="Type a message...">
-        <button id="chat-send">➤</button>
-    </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-box">
-
-        <div class="pfp">
-            <img src="assets/profile.png" alt="Profile">
-            <span class="orbit"></span>
+    <nav>
+        <div class="logo">&lt;NIVIN /&gt;</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
+    </nav>
 
-        <div class="hero-text">
-            <h1 class="glow-title">Nivin Shaju</h1>
-            <p class="subtitle">AI Developer • Computer Vision • Deep Learning</p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 id="typing-text"></h2>
+            <h1>NIVIN SHAJU</h1>
+            <p>
+                AI Developer specializing in Computer Vision, Deep Learning, and Real-time Robotics. 
+                Motivated to build scalable AI systems that solve real-world problems.
+            </p>
+            <a href="#contact" class="btn">Initialize Contact</a>
+        </div>
+        <div class="hero-image">
+            <img src="assets/profile.png" alt="Nivin Shaju Profile Picture">
+        </div>
+    </section>
 
-            <div class="btn-row">
-                <a href="projects.html" class="btn-primary">My Projects</a>
-                <a href="mailto:22bam052@stc.ac.in" class="btn-secondary">Contact Me</a>
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>AI Developer</h3>
+                <span class="date">Twenty4 Jewellery Industries | May 2025 - Nov 2025</span>
+                <ul>
+                    <li>Developed a jewelry similarity search app using YOLOv8 segmentation and Vision Transformers (ViT).</li>
+                    <li>Implemented deep feature embedding for robust similarity matching across designs.</li>
+                    <li>Built a Flask-based interface for dynamic attribute handling.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>AI Developer Intern</h3>
+                <span class="date">Twenty4 Jewellery Industries | March 2025 - May 2025</span>
+                <ul>
+                    <li>Assisted in building recognition systems leveraging YOLOv8.</li>
+                    <li>Ensured precise feature extraction and metadata-driven search capabilities.</li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- SKILLS -->
-<section class="section">
-    <h2 class="section-title">Technical Skills</h2>
+    <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Conversational AI Platform</h3>
+                <span class="date">FastAPI, OpenAI, MySQL | Sep 2025</span>
+                <p>Engineered a scalable system with layered memory architecture (short/long-term) and emotional state modeling for coherent multi-context chat.</p>
+            </div>
+            <div class="card">
+                <h3>Eye-Tracking Mouse Control</h3>
+                <span class="date">Python, OpenCV, Dlib | Sep 2024</span>
+                <p>Developed an accessibility tool detecting eye landmarks to simulate mouse events, allowing cursor control via eye movement.</p>
+            </div>
+            <div class="card">
+                <h3>Fire Fighting Robot</h3>
+                <span class="date">Arduino, IoT, C++ | Nov 2024</span>
+                <p>Autonomous robot using flame sensors and obstacle avoidance algorithms to detect and extinguish fires using a water pump module.</p>
+            </div>
+            <div class="card">
+                <h3>Jewellery Recognition Engine</h3>
+                <span class="date">YOLOv8, ViT | Internship Project</span>
+                <p>Built a similarity search engine specifically tailored for intricate jewelry designs using object detection and embeddings.</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="skill">
-        <span>Python</span>
-        <div class="fill-bar" style="--p:95%"></div>
-    </div>
+    <section id="skills">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-container">
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">C/C++</div>
+            <div class="skill-tag">YOLOv8</div>
+            <div class="skill-tag">OpenCV</div>
+            <div class="skill-tag">FastAPI</div>
+            <div class="skill-tag">Flask</div>
+            <div class="skill-tag">Vision Transformers (ViT)</div>
+            <div class="skill-tag">MySQL</div>
+            <div class="skill-tag">Machine Learning</div>
+            <div class="skill-tag">Matplotlib</div>
+        </div>
+    </section>
 
-    <div class="skill">
-        <span>Computer Vision</span>
-        <div class="fill-bar" style="--p:92%"></div>
-    </div>
+    <section id="education">
+        <h2 class="section-title">Education & Certs</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>B.Sc AI & Machine Learning</h3>
+                <span class="date">Sree Saraswathi Thyagaraja College | 2022-2025</span>
+                <p>CGPA: 6.9 | Bharathiar University</p>
+            </div>
+            <div class="card">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>Machine Learning with Python (IIT Kanpur)</li>
+                    <li>Data Mining (NPTEL)</li>
+                    <li>Basics in Python & C++ (G-TEC)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <div class="skill">
-        <span>Deep Learning</span>
-        <div class="fill-bar" style="--p:88%"></div>
-    </div>
+    <section id="contact">
+        <h2 class="section-title">Transmit Data</h2>
+        <div class="card" style="max-width: 600px;">
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span>EMAIL ::</span> <a href="mailto:nivinshaju@gmail.com">nivinshaju@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>PHONE ::</span> <a href="tel:+919562140166">+91-9562140166</a>
+                </div>
+                <div class="contact-item">
+                    <span>LINKEDIN ::</span> <a href="https://www.linkedin.com/in/contactnivinshaju" target="_blank">linkedin.com/in/contactnivinshaju</a>
+                </div>
+                <div class="contact-item">
+                    <span>LOC ::</span> Pollachi, Tamil Nadu / Kerala
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="skill">
-        <span>FastAPI / Flask</span>
-        <div class="fill-bar" style="--p:86%"></div>
-    </div>
-</section>
+    <footer>
+        <p>&copy; 2025 Nivin Shaju. System Online.</p>
+    </footer>
 
-<!-- EXPERIENCE -->
-<section class="section">
-    <h2 class="section-title">Experience</h2>
+    <script>
+        // Typing Effect for Hero Section
+        const textElement = document.getElementById('typing-text');
+        const phrases = ["AI DEVELOPER", "COMPUTER VISION ENGINEER", "DEEP LEARNING SPECIALIST"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    <div class="card">
-        <h3>AI Developer — Twenty4 Jewellery</h3>
-        <p class="date">May 2025 – Nov 2025</p>
-        <p>Implemented YOLOv8 + ViT similarity engine with metadata-driven retrieval.</p>
-    </div>
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-    <div class="card">
-        <h3>AI Developer Intern — Twenty4 Jewellery</h3>
-        <p class="date">Mar 2025 – May 2025</p>
-        <p>Created jewelry recognition system using ViT embeddings.</p>
-    </div>
-</section>
+            let typeSpeed = 100;
 
-<footer>
-    © 2025 Nivin Shaju — Portfolio
-</footer>
+            if (isDeleting) typeSpeed /= 2;
 
-<script src="script.js"></script>
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Simple Intersection Observer for Fade-in effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Added check to ensure we don't override hover effects accidentally
+                if (entry.isIntersecting && !entry.target.classList.contains('hovered')) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            // Changed transition to only target specific properties so hover transform works better
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s, border-color 0.3s';
+            observer.observe(card);
+
+            // Helper for hover state vs scroll animation state
+            card.addEventListener('mouseenter', () => card.classList.add('hovered'));
+            card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
+        });
+    </script>
 </body>
 </html>
 
