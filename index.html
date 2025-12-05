@@ -85,15 +85,14 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; /* Changed to min-height */
+            min-height: 100vh;
             display: flex;
-            /* Changed direction to row for side-by-side layout on desktop */
             flex-direction: row; 
             justify-content: space-between;
             align-items: center;
-            padding: 120px 10% 80px; /* Increased top padding for nav bar clearance */
+            padding: 120px 10% 80px;
             position: relative;
-            gap: 50px; /* Gap between text and image */
+            gap: 50px;
         }
 
         .hero-content {
@@ -108,22 +107,19 @@
             align-items: center;
         }
 
-        /* Styling for the profile image */
+        /* Styling for the profile image - NO BORDER, NO CIRCLE */
         .hero-image img {
             width: 100%;
-            max-width: 450px; /* Maximum size on desktop */
+            max-width: 450px;
             height: auto;
-            border-radius: 50%; /* Makes it circular */
-            aspect-ratio: 1 / 1; /* Ensures it stays a perfect circle */
+            border-radius: 10px; /* Slight rounding for smoothness */
             object-fit: cover;
-            border: 3px solid rgba(0, 243, 255, 0.5);
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.2); /* Neon glow effect */
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            /* Border and Box-Shadow removed */
+            transition: transform 0.5s ease;
         }
 
         .hero-image img:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 60px rgba(0, 243, 255, 0.4);
         }
 
 
@@ -141,7 +137,7 @@
             color: var(--secondary);
             font-family: var(--font-tech);
             margin-bottom: 20px;
-            min-height: 1.5em; /* Prevents jump when typing starts */
+            min-height: 1.5em;
         }
 
         .hero p {
@@ -202,7 +198,7 @@
         }
 
         .card:hover {
-            transform: translateY(-5px) !important; /* Override JS fade-in transform */
+            transform: translateY(-5px) !important;
             border-color: var(--secondary);
             box-shadow: 0 5px 15px rgba(189, 0, 255, 0.2);
         }
@@ -279,7 +275,6 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
             .hero {
-                /* Stack vertically on smaller screens, image on top */
                 flex-direction: column-reverse;
                 justify-content: center;
                 text-align: center;
@@ -296,14 +291,14 @@
             .hero h1 { font-size: 3rem; }
             
             .hero-image img {
-                max-width: 300px; /* Smaller image on mobile */
+                max-width: 300px;
             }
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             nav { padding: 20px; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; }
             section { padding: 60px 5%; }
         }
     </style>
@@ -334,7 +329,7 @@
             <a href="#contact" class="btn">Initialize Contact</a>
         </div>
         <div class="hero-image">
-            <img src="assets/profile.png" alt="Nivin Shaju Profile Picture">
+            <img src="C:\Users\ns\aether-builder\aether-builder-react\profile.png" alt="Nivin Shaju Profile Picture">
         </div>
     </section>
 
@@ -490,7 +485,6 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Added check to ensure we don't override hover effects accidentally
                 if (entry.isIntersecting && !entry.target.classList.contains('hovered')) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
@@ -501,11 +495,9 @@
         document.querySelectorAll('.card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            // Changed transition to only target specific properties so hover transform works better
             card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s, border-color 0.3s';
             observer.observe(card);
 
-            // Helper for hover state vs scroll animation state
             card.addEventListener('mouseenter', () => card.classList.add('hovered'));
             card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
         });
